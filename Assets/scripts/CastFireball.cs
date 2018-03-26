@@ -5,7 +5,7 @@ using UnityEngine;
 public class CastFireball : MonoBehaviour {
 
     public GameObject fireball;
-    public Vector2 velocity = new Vector2(5.0f, 0f);
+    public int velocity = 32;
     public Vector2 offset = new Vector2(1.5f, 0f);
 	// Use this for initialization
 	void Start () {
@@ -18,10 +18,13 @@ public class CastFireball : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Mouse0) && !Input.GetKeyDown(KeyCode.Mouse1))
         {
             GameObject go = (GameObject)Instantiate(fireball, (Vector2)transform.position + offset, Quaternion.identity);
-            //Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-            Vector2 castPointPosition = new Vector2(0, 0);
 
-            go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x, velocity.y);
+            Vector2 middle = new Vector2(Screen.width / 2, Screen.height / 2);
+            Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            
+            Vector2 w = new Vector2(mousePos.x - middle.x, mousePos.y - middle.y);
+            w.Normalize();
+            go.GetComponent<Rigidbody2D>().velocity = new Vector2(w.x* velocity, w.y*velocity);
             Destroy(go, 3f);
 
         }
