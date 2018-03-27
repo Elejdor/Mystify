@@ -15,16 +15,18 @@ public class CastFlamethrower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
-
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKeyDown(KeyCode.Mouse1))
+        if (go)
         {
-            go = (GameObject)Instantiate(flamethrower, (Vector2)castPoint.transform.position, Quaternion.identity);
-            
-
+            go.transform.position = (Vector2)castPoint.transform.position;
+            go.transform.rotation = castPoint.transform.rotation;
         }
-        go.transform.position = (Vector2)castPoint.transform.position;
-        go.transform.rotation = castPoint.transform.rotation;
-        Destroy(go, 3f);
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                go = (GameObject)Instantiate(flamethrower, (Vector2)castPoint.transform.position, Quaternion.identity);
+                Destroy(go, 3f);
+            }
+        }
     }
 }
