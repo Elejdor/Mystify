@@ -4,31 +4,18 @@ using UnityEngine;
 
 public class CastWind : MonoBehaviour
 {
-    public GameObject castPoint;
-    public GameObject wind;
-    public int velocity = 10;
-    // Use this for initialization
-    void Start()
+    [SerializeField]
+    GameObject castPoint;
+
+    [SerializeField]
+    GameObject wind;
+
+    float velocity = 10;
+
+    public void Cast( Vector2 dir )
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Mouse1) && !Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            GameObject go = (GameObject)Instantiate(wind, (Vector2)castPoint.transform.position, Quaternion.identity);
-
-            Vector2 middle = new Vector2(Screen.width / 2, Screen.height / 2);
-            Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-
-            Vector2 pos = new Vector2(mousePos.x - middle.x, mousePos.y - middle.y);
-            pos.Normalize();
-            go.GetComponent<Rigidbody2D>().velocity = new Vector2(pos.x * velocity, pos.y * velocity);
-            Destroy(go, 3f);
-
-        }
+        GameObject go = (GameObject)Instantiate(wind, castPoint.transform.position, Quaternion.identity);
+        go.GetComponent<Rigidbody2D>().velocity = dir * velocity;
+        Destroy( go, 3f );
     }
 }

@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class CastFlamethrower : MonoBehaviour {
 
-    public GameObject castPoint;
-    public GameObject flamethrower;
-    GameObject go;
+    [SerializeField]
+    GameObject castPoint;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (go)
+    [SerializeField]
+    GameObject flamethrower;
+
+    GameObject flame;
+
+    public void Cast()
+    {
+        if ( Input.GetKeyDown( KeyCode.Mouse0 ) && Input.GetKeyDown( KeyCode.Mouse1 ) )
         {
-            go.transform.position = (Vector2)castPoint.transform.position;
-            go.transform.rotation = castPoint.transform.rotation;
+            flame = (GameObject)Instantiate( flamethrower, (Vector2)castPoint.transform.position, Quaternion.identity );
+            StartCoroutine( HandFollow() );
+            Destroy( flame, 3f );
         }
-        else
+    }
+
+    IEnumerator HandFollow()
+    {
+        while ( flame )
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                go = (GameObject)Instantiate(flamethrower, (Vector2)castPoint.transform.position, Quaternion.identity);
-                Destroy(go, 3f);
-            }
+            flame.transform.position = (Vector2)castPoint.transform.position;
+            flame.transform.rotation = castPoint.transform.rotation;
+            yield return null;
         }
     }
 }

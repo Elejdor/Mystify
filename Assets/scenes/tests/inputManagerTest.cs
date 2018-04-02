@@ -23,7 +23,7 @@ public class inputManagerTest : MonoBehaviour, IInputListener {
 
     void Awake()
     {
-        InputManager.Init( transform );
+        InputManager.Init();
     }
 
     void Start()
@@ -48,7 +48,7 @@ public class inputManagerTest : MonoBehaviour, IInputListener {
 
     public void OnControllerUpdate( InputManager input )
     {
-        _useGamepad.text = "Use gamepad: " + InputManager._useGamepad.ToString();
+        _useGamepad.text = "Use gamepad: " + input.ToString();
         _run.text = "Run: " + input._horizontal;
         _jump.text = "Jump: " + input._jump;
         _cast0.text = "Cast 0: " + input._cast0;
