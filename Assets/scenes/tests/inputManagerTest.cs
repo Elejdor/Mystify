@@ -33,7 +33,7 @@ public class inputManagerTest : MonoBehaviour, IInputListener {
 
     void Update()
     {
-        InputManager.Update();
+        InputManager.GlobalUpdate();
     }
 
     public void OnControllGained()
@@ -46,14 +46,14 @@ public class inputManagerTest : MonoBehaviour, IInputListener {
         Debug.Log( "Input detached." );
     }
 
-    public void OnControllerUpdate()
+    public void OnControllerUpdate( InputManager input )
     {
         _useGamepad.text = "Use gamepad: " + InputManager._useGamepad.ToString();
-        _run.text = "Run: " + InputManager._horizontal;
-        _jump.text = "Jump: " + InputManager._jump;
-        _cast0.text = "Cast 0: " + InputManager._cast0;
-        _cast1.text = "Cast 1: " + InputManager._cast1;
+        _run.text = "Run: " + input._horizontal;
+        _jump.text = "Jump: " + input._jump;
+        _cast0.text = "Cast 0: " + input._cast0;
+        _cast1.text = "Cast 1: " + input._cast1;
 
-        transform.right = InputManager._aimingDirection;
+        transform.right = input._aimingDirection;
     }
 }

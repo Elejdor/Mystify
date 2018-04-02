@@ -15,33 +15,45 @@ public interface IInputListener
 {
     void OnControllGained();
     void OnControllLost();
-    void OnControllerUpdate();
+    void OnControllerUpdate( InputManager input );
 }
 
 public class InputManager
 {
-    public static Vector2 _aimingVector { get; private set; }
-    public static Vector2 _aimingDirection { get; private set; }
-    public static float _horizontal { get; private set; }
-    public static ButtonState _jump { get; private set; }
-    public static bool _cast0 { get; private set; }
-    public static bool _cast1 { get; private set; }
+    static InputManager s_input;
+    public Vector2 _aimingVector { get; private set; }
+    public Vector2 _aimingDirection { get; private set; }
+    public float _horizontal { get; private set; }
+    public ButtonState _jump { get; private set; }
+    public bool _cast0 { get; private set; }
+    public bool _cast1 { get; private set; }
 
-    static GamePadState _gs;
-    static Transform _playerTransform;
-    static IInputListener _listener;
+    GamePadState _gs;
+    Transform _playerTransform;
+    IInputListener _listener;
     public static bool _useGamepad { get; private set; }
 
     public static void Init( Transform playerTransform = null )
     {
-        _playerTransform = playerTransform;
+        if ( s_input != null )
+            return;
+
+        InputManager input = new InputManager();
+        input._playerTransform = playerTransform;
         SetListener( null );
 
-        _gs = GamePad.GetState( 0, GamePadDeadZone.Circular );
-        _useGamepad = _gs.IsConnected;
+        input._gs = GamePad.GetState( 0, GamePadDeadZone.Circular );
+        _useGamepad = input._gs.IsConnected;
+        s_input = input;
     }
 
-    public static void Update()
+    public static void GlobalUpdate()
+    {
+        if ( s_input != null )
+            s_input.UpdateInternal();
+    }
+
+    void UpdateInternal()
     {
         ResetInput();
         _gs = GamePad.GetState( 0, GamePadDeadZone.Circular );
@@ -63,16 +75,21 @@ public class InputManager
         }
 
         if ( _listener != null )
-            _listener.OnControllerUpdate();
+            _listener.OnControllerUpdate( this );
     }
 
-
-    static void ResetInput()
+    void ResetInput()
     {
         _jump = ButtonState.Idle;
     }
 
     public static void SetListener( IInputListener listener )
+    {
+        if ( s_input != null )
+            s_input.SetListenerInternal( listener );
+    }
+
+    void SetListenerInternal( IInputListener listener )
     {
         if ( _listener != null )
             _listener.OnControllLost();
@@ -82,6 +99,7 @@ public class InputManager
             _listener.OnControllGained();
     }
 
+
     static class Helper
     {
         public static bool JumpReleased()
@@ -89,7 +107,7 @@ public class InputManager
             if ( !( Input.GetKey( KeyCode.Space ) ||
                     Input.GetKey( KeyCode.W ) ||
                     Input.GetKey( KeyCode.UpArrow ) ) &&
-                    _gs.Buttons.A == XInputDotNetPure.ButtonState.Released )
+                    s_input._gs.Buttons.A == XInputDotNetPure.ButtonState.Released )
                 return true;
 
             return false;
@@ -104,7 +122,7 @@ public class InputManager
                 _useGamepad = false;
                 return true;
             }
-            else if ( _gs.Buttons.A == XInputDotNetPure.ButtonState.Pressed )
+            else if ( s_input._gs.Buttons.A == XInputDotNetPure.ButtonState.Pressed )
             {
                 _useGamepad = true;
                 return true;
@@ -127,11 +145,11 @@ public class InputManager
                 return -1.0f;
             }
 
-            if ( _gs.ThumbSticks.Left.X > 0.01f )
+            if ( s_input._gs.ThumbSticks.Left.X > 0.01f )
             {
                 _useGamepad = true;
             }
-            return _gs.ThumbSticks.Left.X;
+            return s_input._gs.ThumbSticks.Left.X;
         }
 
         static Vector3 _mousePosCache;
@@ -144,7 +162,7 @@ public class InputManager
             {
                 if ( _useGamepad )
                 {
-                    return new Vector2( _gs.ThumbSticks.Right.X, _gs.ThumbSticks.Right.Y );
+                    return new Vector2( s_input._gs.ThumbSticks.Right.X, s_input._gs.ThumbSticks.Right.Y );
                 }
                 else
                 {
@@ -164,14 +182,14 @@ public class InputManager
             switch ( spellId )
             {
                 case 0:
-                    if ( _gs.Triggers.Left > threshold )
+                    if ( s_input._gs.Triggers.Left > threshold )
                     {
                         _useGamepad = true;
                         return true;
                     }
                     break;
                 case 1:
-                    if ( _gs.Triggers.Right > threshold )
+                    if ( s_input._gs.Triggers.Right > threshold )
                     {
                         _useGamepad = true;
                         return true;
