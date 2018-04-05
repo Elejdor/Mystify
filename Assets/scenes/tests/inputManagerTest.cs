@@ -29,6 +29,7 @@ public class inputManagerTest : MonoBehaviour, IInputListener {
     void Start()
     {
         InputManager.SetListener( this );
+        InputManager.SetPlayerTransform( transform );
     }
 
     void Update()
