@@ -34,6 +34,7 @@ public class InputManager
     IInputListener _listener;
     Vector3 _wsMousePos;
     Vector3 _ssMousePos;
+                                  
 
     public static void Init()
     {
@@ -72,7 +73,7 @@ public class InputManager
                 _aimingDirection = _aimingVector.normalized;
             else if ( _aimingVector.sqrMagnitude > 0.1f )
                 _aimingDirection = _aimingVector.normalized;
-        }
+        }                                     
 
         if ( _listener != null )
             _listener.OnControllerUpdate( this );
@@ -124,8 +125,8 @@ public class InputManager
     bool JumpPressed()
     {
         if ( Input.GetKey( KeyCode.Space ) ||
-                Input.GetKey( KeyCode.W ) ||
-                Input.GetKey( KeyCode.UpArrow ) )
+             Input.GetKey( KeyCode.W ) ||
+             Input.GetKey( KeyCode.UpArrow ) )
         {
             _useGamepad = false;
             return true;

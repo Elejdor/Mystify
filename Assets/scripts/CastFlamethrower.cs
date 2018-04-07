@@ -13,13 +13,10 @@ public class CastFlamethrower : MonoBehaviour {
     GameObject flame;
 
     public void Cast()
-    {
-        if ( Input.GetKeyDown( KeyCode.Mouse0 ) && Input.GetKeyDown( KeyCode.Mouse1 ) )
-        {
-            flame = (GameObject)Instantiate( flamethrower, (Vector2)castPoint.transform.position, Quaternion.identity );
-            StartCoroutine( HandFollow() );
-            Destroy( flame, 3f );
-        }
+    { 
+        flame = (GameObject)Instantiate( flamethrower, (Vector2)castPoint.transform.position, Quaternion.identity );
+        StartCoroutine( HandFollow() );
+        Destroy( flame, 3f );   
     }
 
     IEnumerator HandFollow()

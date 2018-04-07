@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour, IInputListener
     CastFireball _fireball;
     CastWind _wind;
     CastFlamethrower _flamethrower;
+    CharacterMovement _movement;
+    
 
     bool _spellReady = true;
 
@@ -21,10 +23,12 @@ public class PlayerController : MonoBehaviour, IInputListener
         _fireball = GetComponent<CastFireball>();
         _wind = GetComponent<CastWind>();
         _flamethrower = GetComponent<CastFlamethrower>();
+        _movement = GetComponent<CharacterMovement>();
 
         Debug.Assert( _fireball, "Missing object reference" );
         Debug.Assert( _wind, "Missing object reference" );
         Debug.Assert( _flamethrower, "Missing object reference" );
+        Debug.Assert(_movement, "Missing object reference");
     }
 
     // Use this for initialization
@@ -51,13 +55,14 @@ public class PlayerController : MonoBehaviour, IInputListener
     {
         _arm.right = input._aimingDirection;
         HandleSpellsInput( input );
+        HandleMovementInput( input );
     }
 
     void HandleSpellsInput( InputManager input )
     {
         if ( !_spellReady )
             return;
-
+                                
 
         byte spell = 0;
         if ( input._cast0 )
@@ -78,12 +83,19 @@ public class PlayerController : MonoBehaviour, IInputListener
                 _flamethrower.Cast();
                 break;
         }
-
         if ( spell != 0 )
         {
             _spellReady = false;
             StartCoroutine( RefreshCooldown() );
         }
+    }
+
+    void HandleMovementInput(InputManager input)
+    {                                 
+        _movement.walk(input);
+        //problem to solve - we need to enable jumping while we are grounded
+        if(input._jump == ButtonState.Pressed)
+            _movement.jump();
     }
 
     public void OnControllGained()
