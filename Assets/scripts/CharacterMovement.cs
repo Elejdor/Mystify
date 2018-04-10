@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
 
     public float characterVelocity { get; private set; }
     public float jumpForce { get; private set; }
+    public bool isGrounded;
     
     
 
@@ -16,14 +17,12 @@ public class CharacterMovement : MonoBehaviour
     {
         characterVelocity = 32f;
         jumpForce = 32f;
+        isGrounded = true;
 	}
 
     public void jump()
     {
-        player.transform.Translate(Vector2.up * jumpForce * Time.deltaTime);
-        //Checking if standing on ground
-        //if(yes) - we can jump
-        //if(no) - we have to wait till he reaches ground
+        player.transform.Translate(Vector2.up * jumpForce * Time.deltaTime);  
     }
 
     public void walk(InputManager input)
@@ -36,5 +35,11 @@ public class CharacterMovement : MonoBehaviour
     {
         //TO DO
     }
-                  
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+            isGrounded = true;
+
+    }
 }

@@ -94,8 +94,11 @@ public class PlayerController : MonoBehaviour, IInputListener
     {                                 
         _movement.walk(input);
         //problem to solve - we need to enable jumping while we are grounded
-        if(input._jump == ButtonState.Pressed)
+        if( (_movement.isGrounded == true) && (input._jump == ButtonState.Pressed) )
+        {
             _movement.jump();
+            _movement.isGrounded = false;
+        }
     }
 
     public void OnControllGained()
