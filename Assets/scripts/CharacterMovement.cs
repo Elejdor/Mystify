@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+public class characterMovementTest : MonoBehaviour
 {
     [SerializeField]       
     GameObject player;
@@ -15,19 +15,33 @@ public class CharacterMovement : MonoBehaviour
 
 	void Start ()
     {
-        characterVelocity = 32f;
-        jumpForce = 32f;
+        characterVelocity = 5f;
+        jumpForce = 250f;
         isGrounded = true;
 	}
 
-    public void jump()
+    void Update()
     {
-        player.transform.Translate(Vector2.up * jumpForce * Time.deltaTime);  
+        if(Input.GetKey(KeyCode.A))     
+            walk(-1f);
+        if(Input.GetKey(KeyCode.D))
+            walk(1f);
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+            jump();
+
     }
 
-    public void walk(InputManager input)
+
+    public void jump()
+    {
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpForce * Time.deltaTime);
+        //player.transform.Translate(Vector2.up * jumpForce * Time.deltaTime);
+        isGrounded = false;
+    }
+
+    public void walk(float _horizontal)
     {   
-        player.transform.Translate(Vector2.right * characterVelocity * input._horizontal * Time.deltaTime);    
+        player.transform.Translate(Vector2.right * characterVelocity * _horizontal * Time.deltaTime);    
         //changing direction flips player
     }
 
