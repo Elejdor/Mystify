@@ -165,6 +165,7 @@ public class InputManager
         }
         return _gs.ThumbSticks.Left.X;
     }
+
     Vector2 GetAimingVector( Transform target )
     {
 
@@ -194,15 +195,13 @@ public class InputManager
         switch ( spellId )
         {
             case 0:
-                if ( s_input._gs.Triggers.Left > threshold )
-                {
+                if ( s_input._gs.Triggers.Left > threshold ) {
                     _useGamepad = true;
                     return true;
                 }
                 break;
             case 1:
-                if ( s_input._gs.Triggers.Right > threshold )
-                {
+                if ( s_input._gs.Triggers.Right > threshold ) {
                     _useGamepad = true;
                     return true;
                 }
