@@ -103,6 +103,11 @@ public class InputManager
 
     void SetListenerInternal( IInputListener listener )
     {
+#if UNITY_EDITOR
+        if ( Settings._verbose )
+            Debug.Log( "Input listener: " + listener.GetType().ToString() );
+#endif
+
         if ( _listener != null )
             _listener.OnControllLost();
 
