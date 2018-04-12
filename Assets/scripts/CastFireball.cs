@@ -11,9 +11,7 @@ public class CastFireball : MonoBehaviour
     [SerializeField]
     GameObject fireball;
 
-    float velocity = 32;
-    float cooldown = 1.0f;
-    float timeToCast = 0.0f;
+    float velocity = 32;     
 
     public void Cast( Vector2 dir )
     {
