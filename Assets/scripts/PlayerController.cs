@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour, IInputListener
     void HandleMovementInput(InputManager input)
     {                                 
         _movement.walk(input);                                               
-        if( (_movement.isGrounded == true) && (input._jump == ButtonState.Pressed) )
+        if( (_movement._isGrounded == true) && (input._jump == ButtonState.Pressed) )
             _movement.jump();  
     }
 
