@@ -75,19 +75,14 @@ public class CameraMovement : MonoBehaviour {
     }
     void BeginShake()
     {
+        transform.position = initPos;
         if (shakeAmount > 0)
         {
             Vector3 camPos = transform.position;
             float offsetX = Random.value * shakeAmount * 2 - shakeAmount;
             float offsetY = Random.value * shakeAmount * 2 - shakeAmount;
-            if (offsetX < 1)
-            {
-                camPos.x += offsetX;
-            }
-            if (offsetY < 1)
-            {
-                camPos.y += offsetY;
-            }
+            camPos.x += offsetX;
+            camPos.y += offsetY;
             transform.position = camPos;
         }
     }
