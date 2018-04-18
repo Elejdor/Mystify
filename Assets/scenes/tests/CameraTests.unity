@@ -528,3 +528,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 444264533}
   velocity: 5
+  shakeAmount: 0.3
+  length: 0.3

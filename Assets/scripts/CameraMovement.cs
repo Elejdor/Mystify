@@ -9,7 +9,12 @@ public class CameraMovement : MonoBehaviour {
 
     [SerializeField]
     float velocity = 5f;
+
+    [SerializeField]
     float shakeAmount;
+
+    [SerializeField]
+    float length;
     Vector3 currVel;
     Vector3 newPos;
     Vector3 offset;
@@ -18,7 +23,6 @@ public class CameraMovement : MonoBehaviour {
     void Start () {
 
         offset = transform.position - Player.transform.position;
-        initPos = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -30,8 +34,7 @@ public class CameraMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.Q)) transform.position = Player.transform.position + offset;
         if (Input.GetKey(KeyCode.P))
         {
-            initPos = transform.position;
-            Shake(0.3f, 0.5f);
+            Shake();
         }
         if ((((transform.position.y + 2) - Player.transform.position.y) < 0) || (((Player.transform.position.y + 2) - transform.position.y) < 0)) 
         {
@@ -63,12 +66,12 @@ public class CameraMovement : MonoBehaviour {
     }
 
 
-    public void Shake(float amt, float length)
+    public void Shake()
     {
-        
-        shakeAmount = amt;
+        initPos = transform.position;
         InvokeRepeating("BeginShake", 0, 0.1f);
         Invoke("StopShake", length);
+        transform.position = initPos;
     }
     void BeginShake()
     {
@@ -77,8 +80,14 @@ public class CameraMovement : MonoBehaviour {
             Vector3 camPos = transform.position;
             float offsetX = Random.value * shakeAmount * 2 - shakeAmount;
             float offsetY = Random.value * shakeAmount * 2 - shakeAmount;
-            camPos.x += offsetX;
-            camPos.y += offsetY;
+            if (offsetX < 1)
+            {
+                camPos.x += offsetX;
+            }
+            if (offsetY < 1)
+            {
+                camPos.y += offsetY;
+            }
             transform.position = camPos;
         }
     }
@@ -86,6 +95,5 @@ public class CameraMovement : MonoBehaviour {
     void StopShake()
     {
         CancelInvoke("BeginShake");
-        transform.position = initPos;
     }
 }
