@@ -36,17 +36,16 @@ public class CameraMovement : MonoBehaviour {
         {
             Shake();
         }
-        if ((((transform.position.y + 2) - Player.transform.position.y) < 0) || (((Player.transform.position.y + 2) - transform.position.y) < 0)) 
+      /*  if ((((transform.position.y + 2) - Player.transform.position.y) < 0) || (((Player.transform.position.y + 2) - transform.position.y) < 0)) 
         {
             newPos = transform.position;
             newPos.y = Player.transform.position.y;
             transform.position = Vector3.SmoothDamp(transform.position, newPos, ref currVel, 1);
-        }
+        }*/
         if ((((transform.position.x + 5) - Player.transform.position.x) < 0) || (((Player.transform.position.x + 5) - transform.position.x) < 0))
         {
-            newPos = transform.position;
-            newPos.x = Player.transform.position.x;
-            transform.position = Vector3.SmoothDamp(transform.position, newPos, ref currVel, 1);
+            newPos = new Vector3(Player.transform.position.x, transform.position.y, transform.position.z);
+            transform.position = Vector3.SmoothDamp(transform.position, newPos, ref currVel, 2f);
         }
     }
 
