@@ -8,6 +8,7 @@ public class EnviroGenerator : MonoBehaviour {
     public GameObject InstDown;
     int y = 0;
     bool flag = true;
+    float rand;
     GameObject go;
 	// Use this for initialization
 	void Start () {
@@ -15,19 +16,16 @@ public class EnviroGenerator : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-        if ((transform.position.x % 5 == 0) && flag)
+	void Update () {
+        if ((InstDown.transform.position.x <= (transform.position.x + 12)) && flag==true)
         {
-            if (down[y].GetComponent<SpriteRenderer>().flipX)
-            {
-                down[y].GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else down[y].GetComponent<SpriteRenderer>().flipX = false;
             Instantiate(down[y], InstDown.transform.position, Quaternion.identity);
+            rand = Random.Range(5f, 20f);
+            InstDown.transform.position = new Vector3(InstDown.transform.position.x + rand, InstDown.transform.position.y, InstDown.transform.position.z);
             y++;
             flag = false;
         }
-        if (transform.position.x % 5 != 0) flag = true;
+        flag = true;
         if (y == 4) y = 0;
 	}
 }
