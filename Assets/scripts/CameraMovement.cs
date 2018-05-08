@@ -50,7 +50,7 @@ public class CameraMovement : MonoBehaviour {
     }
 
     
-
+    
     void moveRight()
     {
         Player.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity, Player.GetComponent<Rigidbody2D>().velocity.y);
