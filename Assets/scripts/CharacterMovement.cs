@@ -17,6 +17,7 @@ public class CharacterMovement : MonoBehaviour
     bool _jumpReady = true;
     bool _canJump = false;
     bool _grounded = false;
+    bool _isLeft = true;
 
     void Start ()
     {
@@ -43,6 +44,10 @@ public class CharacterMovement : MonoBehaviour
     {
         if ( _dir.Equals( Vector2.zero ) )
             return;
+
+        if ( ( _dir.x < 0 && !_isLeft )
+            || ( _dir.x > 0 && _isLeft ) )
+            Flip();
 
         _rb.AddForce( _dir * _walkForce );
         _dir = Vector2.zero;
@@ -85,6 +90,14 @@ public class CharacterMovement : MonoBehaviour
         }
 
         return false;
+    }
+
+    void Flip()
+    {
+        _isLeft = !_isLeft;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
