@@ -16,6 +16,8 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField]
     Transform _renderer;
 
+    Anima2D.PoseManager _poseManager;
+
     float _groundCheckDist;
     float _walkForce = 8.0f;
     float _jumpForce = 1200.0f;
@@ -25,7 +27,7 @@ public class CharacterMovement : MonoBehaviour
     bool _grounded = false;
     bool _isLeft = true;
 
-    void Start ()
+    void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _groundCheckDist = _downRay.localPosition.magnitude;
@@ -42,6 +44,7 @@ public class CharacterMovement : MonoBehaviour
         if (_jumpReady)
         {
             _grounded = CheckGrounded();
+            _anim.SetBool( "grounded", _grounded );
             _canJump = _grounded;
         }
     }
