@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour, IInputListener
     CastWind _wind;
     CastFlamethrower _flamethrower;
     CharacterMovement _movement;
+
+    [SerializeField]
+    SimpleCameraFollow _camera;
     
     bool _spellReady = true;
 
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour, IInputListener
     public void OnControllerUpdate( InputManager input )
     {
         _arm.right = input._aimingDirection;
+        _camera.SetAiming( input._aimingVector );
         HandleSpellsInput( input );
         HandleMovementInput( input );
     }
@@ -61,7 +65,6 @@ public class PlayerController : MonoBehaviour, IInputListener
     {
         if ( !_spellReady )
             return;
-                                
 
         byte spell = 0;
         if ( input._cast0 )

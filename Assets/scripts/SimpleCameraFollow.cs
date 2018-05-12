@@ -9,14 +9,13 @@ public class SimpleCameraFollow : MonoBehaviour {
 
     Vector3 _offset;
 
-    void Start()
-    {
-        _offset = _target.position - transform.position;
-    }
-
     void FixedUpdate()
     {
-        transform.position = _target.position - _offset;
+        transform.position = _target.position + _offset * 0.2f;
     }
 
+    public void SetAiming(Vector3 dir)
+    {
+        _offset = dir;
+    }
 }

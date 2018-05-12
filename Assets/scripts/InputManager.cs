@@ -168,7 +168,6 @@ public class InputManager
 
     Vector2 GetAimingVector( Transform target )
     {
-
         Vector2 result = Vector2.zero;
 
         if ( target )
@@ -179,9 +178,10 @@ public class InputManager
             }
             else
             {
-                _wsMousePos = Input.mousePosition;
-                _ssMousePos = Camera.main.WorldToScreenPoint( target.position );
-                result = _wsMousePos - _ssMousePos;
+                _ssMousePos = Input.mousePosition;
+                _wsMousePos = Camera.main.ScreenToWorldPoint( _ssMousePos );
+
+                result = _wsMousePos - target.position;
             }
         }
 
