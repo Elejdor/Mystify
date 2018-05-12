@@ -1,27 +1,44 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Paralax : MonoBehaviour
 {
-
-    // Każda warstwa = inna prędkość    (4)
-    // ForeGround               - 1.5 velocity
-    // BackGround I             - 0.8 velocity
-    // BackGround II            - 0.5 velocity
-        
-    /* INICJALIZACJA:
-     * float ForegroundVelocity;
-     * float BackgroundVelocity;
-     * itp.
-     */
-
-	void Start ()
+    [Serializable]
+    public class ParalaxLayer
     {
-		//Nadanie wartości
-	}
-	
-    //METODY
-    //warstwy poruszają sie razem z graczem tylko z innymi prędkościami
+        public Transform _transform;
+        public float _speed;
+        public Vector3 _initialPos;
+    }
+
+    [SerializeField]
+    ParalaxLayer[] _layers;
+
+    [SerializeField]
+    Transform _camera;
+
+    float _initialOffset;
+
+    void Start()
+    {
+        _initialOffset = _camera.transform.position.x;
+
+        foreach (ParalaxLayer layer in _layers)
+        {
+            layer._initialPos = layer._transform.position;
+        }
+    }
+
+    void Update()
+    {
+        float diff = _camera.transform.position.x - _initialOffset;
+        foreach ( ParalaxLayer layer in _layers )
+        {
+            layer._transform.position = Vector3.right * diff * layer._speed + layer._initialPos;
+        }
+    }
+
 
 }
