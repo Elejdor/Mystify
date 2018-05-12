@@ -10,9 +10,15 @@ public class CharacterMovement : MonoBehaviour
     Transform _downRay;
     Vector2 _dir;
 
+    [SerializeField]
+    Animator _anim;
+
+    [SerializeField]
+    Transform _renderer;
+
     float _groundCheckDist;
-    float _walkForce = 20.0f;
-    float _jumpForce = 10.0f;
+    float _walkForce = 8.0f;
+    float _jumpForce = 1200.0f;
 
     bool _jumpReady = true;
     bool _canJump = false;
@@ -42,20 +48,20 @@ public class CharacterMovement : MonoBehaviour
 
     void Walk()
     {
-        if ( _dir.Equals( Vector2.zero ) )
-            return;
-
         if ( ( _dir.x < 0 && !_isLeft )
             || ( _dir.x > 0 && _isLeft ) )
             Flip();
 
-        _rb.AddForce( _dir * _walkForce );
-        _dir = Vector2.zero;
+        _rb.velocity = new Vector2( _dir.x * _walkForce, _rb.velocity.y );
     }
 
     public void handleInput(InputManager input)
     {
         _dir.x = input._horizontal;
+
+        _anim.SetFloat( "Speed", Mathf.Abs( _dir.x ) );
+        _anim.SetFloat( "VerticalSpeed", _rb.velocity.y );
+
         if (input._jump == ButtonState.Pressed)
         {
             TryJump();
@@ -66,7 +72,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (_canJump)
         {
-            _rb.AddForce( Vector2.up * _jumpForce, ForceMode2D.Impulse );
+            _rb.AddForce( Vector2.up * _jumpForce );
             _jumpReady = false;
             _canJump = false;
             StartCoroutine( Jumping() );
@@ -83,7 +89,7 @@ public class CharacterMovement : MonoBehaviour
     {
         int layer = 1 << LayerMask.NameToLayer( "Ground" );
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, Vector2.down, _groundCheckDist, layer);
-        Debug.DrawRay( transform.position, Vector2.down, Color.red, _groundCheckDist );
+        Debug.DrawRay(transform.position, Vector2.down, Color.red, _groundCheckDist );
         if ( hit.Length > 0 )
         {
             return true;
@@ -95,12 +101,8 @@ public class CharacterMovement : MonoBehaviour
     void Flip()
     {
         _isLeft = !_isLeft;
-        Vector3 scale = transform.localScale;
+        Vector3 scale = _renderer.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
-    }
-
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
+        _renderer.localScale = scale;
     }
 }
