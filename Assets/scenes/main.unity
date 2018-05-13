@@ -809,7 +809,7 @@ Prefab:
     - target: {fileID: 20686084571677396, guid: 6534bbbef82a45742aa5f85a4401eb2f,
         type: 2}
       propertyPath: orthographic size
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4584734293836146, guid: 6534bbbef82a45742aa5f85a4401eb2f, type: 2}
       propertyPath: m_LocalPosition.y
