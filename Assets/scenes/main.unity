@@ -868,14 +868,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f81c01f6cc956438703899b8eab2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downBottomRange: 15
-  downUpperRange: 25
-  midBottomRange: 5
-  midUpperRange: 15
-  upBottomRange: 5
-  upUpperRange: 15
-  stalagnatsBottomRange: 20
-  stalagnatsUpperRange: 35
+  downRange: {x: 15, y: 25}
+  midRange: {x: 5, y: 15}
+  upRange: {x: 5, y: 15}
+  stalagnatsRange: {x: 20, y: 35}
   down:
   - {fileID: 1367380801318338, guid: c9d15ba9b4101854cadebcd7b898420f, type: 2}
   - {fileID: 1107018994961724, guid: 9c2bf14ef03887e4d90c9d4b2dbcfd84, type: 2}
