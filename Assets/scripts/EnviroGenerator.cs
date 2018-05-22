@@ -47,128 +47,62 @@ public class EnviroGenerator : MonoBehaviour {
         layer_2 = GameObject.Find("layer_2");
         layer_3 = GameObject.Find("layer_3");
 	}
+
+    void sort(GameObject go)
+    {
+        if (go.GetComponent<SpriteRenderer>().sortingOrder == 2)
+            go.transform.parent = layer_0.transform;
+
+        else if (go.GetComponent<SpriteRenderer>().sortingOrder == -1)
+            go.transform.parent = layer_1.transform;
+
+        else if (go.GetComponent<SpriteRenderer>().sortingOrder == -2)
+            go.transform.parent = layer_2.transform;
+
+        else if (go.GetComponent<SpriteRenderer>().sortingOrder == -3)
+            go.transform.parent = layer_3.transform;
+    }
+
+    void Generate(List<GameObject> list, int rot, GameObject Inst, int bottom, int upper, bool flag, bool flipY, bool up)
+    {
+        randFlipX = Random.Range(0, 2);
+        if (randFlipX == 0) randFlipX = -1;
+        if (flipY == true)
+        {
+            randFlipY = Random.Range(0, 2);
+            if (randFlipY == 0) randFlipY = -1;
+        }
+        randPref = Random.Range(0, list.Count);
+        randRot = Random.Range(-rot, rot + 1);
+        go = Instantiate(list[randPref], Inst.transform.position, Quaternion.identity);
+        if (up == false)
+            go.transform.localScale = new Vector3(go.transform.localScale.x * randFlipX, go.transform.localScale.y, go.transform.localScale.z);
+
+        else
+            go.transform.localScale = new Vector3(go.transform.localScale.x * randFlipX, go.transform.localScale.y * -1, go.transform.localScale.z);
+
+        go.transform.Rotate(Vector3.forward * randRot);
+        sort(go);
+
+        randPos = Random.Range(bottom, upper + 1);
+        Inst.transform.position = new Vector3(Inst.transform.position.x + randPos, Inst.transform.position.y, Inst.transform.position.z);
+        flag = false;
+    }
 	
 	void Update () {
-        if ((InstDown.transform.position.x <= (transform.position.x + 30)) && flagDown==true)               //down
-        {
-            do
-            {
-                randFlipX = Random.Range(-1, 2);
-            }
-            while (randFlipX == 0);
-
-            randPref = Random.Range(0, down.Count);
-            randRot = Random.Range(-10, 11);
-            go = Instantiate(down[randPref], InstDown.transform.position, Quaternion.identity);
-            go.transform.localScale = new Vector3(go.transform.localScale.x*randFlipX, go.transform.localScale.y, go.transform.localScale.z);
-            go.transform.Rotate(Vector3.forward * randRot);
-            if (go.GetComponent<SpriteRenderer>().sortingOrder == 2)
-                go.transform.parent = layer_0.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -1)
-                go.transform.parent = layer_1.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -2)
-                go.transform.parent = layer_2.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -3)
-                go.transform.parent = layer_3.transform;
-
-            randPos = Random.Range(downBottomRange, downUpperRange + 1);
-            InstDown.transform.position = new Vector3(InstDown.transform.position.x + randPos, InstDown.transform.position.y, InstDown.transform.position.z);
-            flagDown = false;
-        }
-        if ((InstMid.transform.position.x <= (transform.position.x + 30)) && flagMid == true)               //mid
-        {
-            do
-            {
-                randFlipX = Random.Range(-1, 2);
-            }
-            while (randFlipX == 0);
-
-            randPref = Random.Range(0, mid.Count);
-            randRot = Random.Range(-10, 11);
-            go = Instantiate(mid[randPref], InstMid.transform.position, Quaternion.identity);
-            go.transform.localScale = new Vector3(go.transform.localScale.x * randFlipX, go.transform.localScale.y, go.transform.localScale.z);
-            go.transform.Rotate(Vector3.forward * randRot);
-            if (go.GetComponent<SpriteRenderer>().sortingOrder == 2)
-                go.transform.parent = layer_0.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -1)
-                go.transform.parent = layer_1.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -2)
-                go.transform.parent = layer_2.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -3)
-                go.transform.parent = layer_3.transform;
-
-            randPos = Random.Range(midBottomRange, midUpperRange + 1);
-            InstMid.transform.position = new Vector3(InstMid.transform.position.x + randPos, InstMid.transform.position.y, InstMid.transform.position.z);
-            flagMid = false;
-        }
-         if ((InstUp.transform.position.x <= (transform.position.x + 30)) && flagUp == true)                //up
-         {
-             do
-             {
-                 randFlipX = Random.Range(-1, 2);
-             }
-             while (randFlipX == 0);
-
-             randPref = Random.Range(0, up.Count);
-             randRot = Random.Range(-10, 11);
-             go = Instantiate(up[randPref], InstUp.transform.position, Quaternion.identity);
-             go.transform.localScale = new Vector3(go.transform.localScale.x * randFlipX, go.transform.localScale.y * -1, go.transform.localScale.z);
-             go.transform.Rotate(Vector3.forward * randRot);
-             if (go.GetComponent<SpriteRenderer>().sortingOrder == 2)
-                 go.transform.parent = layer_0.transform;
-
-             else if (go.GetComponent<SpriteRenderer>().sortingOrder == -1)
-                go.transform.parent = layer_1.transform;
-
-             else if (go.GetComponent<SpriteRenderer>().sortingOrder == -2)
-                go.transform.parent = layer_2.transform;
-
-             else if (go.GetComponent<SpriteRenderer>().sortingOrder == -3)
-                go.transform.parent = layer_3.transform;
-
-            randPos = Random.Range(upBottomRange, upUpperRange + 1);
-             InstUp.transform.position = new Vector3(InstUp.transform.position.x + randPos, InstUp.transform.position.y, InstUp.transform.position.z);
-             flagUp = false;
-         }
-        if ((InstStal.transform.position.x <= (transform.position.x + 30)) && flagStal == true)                //stalagnats
-        {
-            do
-            {
-                randFlipX = Random.Range(-1, 2);
-            }
-            while (randFlipX == 0);
-
-            do
-            {
-                randFlipY = Random.Range(-1, 2);
-            }
-            while (randFlipY == 0);
-
-            randPref = Random.Range(0, stalagnats.Count);
-            //randRot = Random.Range(-5, 6);
-            go = Instantiate(stalagnats[randPref], InstStal.transform.position, Quaternion.identity);
-            go.transform.localScale = new Vector3(go.transform.localScale.x * randFlipX, go.transform.localScale.y * randFlipY, go.transform.localScale.z);
-            //go.transform.Rotate(Vector3.forward * randRot);
-            if (go.GetComponent<SpriteRenderer>().sortingOrder == -1)
-                go.transform.parent = layer_1.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -2)
-                go.transform.parent = layer_2.transform;
-
-            else if (go.GetComponent<SpriteRenderer>().sortingOrder == -3)
-                go.transform.parent = layer_3.transform;
-
-            randPos = Random.Range(stalagnatsBottomRange, stalagnatsUpperRange + 1);
-            InstStal.transform.position = new Vector3(InstStal.transform.position.x + randPos, InstStal.transform.position.y, InstStal.transform.position.z);
-            flagStal = false;
-        }
-        if ((InstGround.transform.position.x <= (transform.position.x + 35)) && flagGround == true)             //ground
+        if ((InstDown.transform.position.x <= (transform.position.x + 30)) && flagDown==true) //down
+            Generate(down, 10, InstDown, downBottomRange, downUpperRange, flagDown, false, false);
+        
+        if ((InstMid.transform.position.x <= (transform.position.x + 30)) && flagMid == true) //mid
+            Generate(mid, 10, InstMid, midBottomRange, midUpperRange, flagMid, false, false);
+        
+        if ((InstUp.transform.position.x <= (transform.position.x + 30)) && flagUp == true) //up
+            Generate(up, 10, InstUp, upBottomRange, upUpperRange, flagUp, false, true);
+        
+        if ((InstStal.transform.position.x <= (transform.position.x + 30)) && flagStal == true) //stalagnats
+            Generate(stalagnats, 0, InstStal, stalagnatsBottomRange, stalagnatsUpperRange, flagStal, true, false);
+        
+        if ((InstGround.transform.position.x <= (transform.position.x + 35)) && flagGround == true) //ground
         {
             Instantiate(Ground, InstGround.transform.position, Quaternion.identity);
             InstGround.transform.position = new Vector3(InstGround.transform.position.x + 25.5f, InstGround.transform.position.y, InstGround.transform.position.z);
