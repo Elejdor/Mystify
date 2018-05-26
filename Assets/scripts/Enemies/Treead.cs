@@ -20,15 +20,13 @@ public class Treead : MonoBehaviour, IDamageable<int>
 
     public float _burnTime;
     public bool _isBurning;
-    public bool _attackReady;
-    public EnemyTypes type;
+    public bool _attackReady;  
 
    
 
 
     void Start()
-    {
-        type = EnemyTypes.Treead;
+    {                            
         _hpMax = 250;
         _hp = _hpMax;
         _velocity = 2f;

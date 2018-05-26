@@ -4,40 +4,41 @@ using UnityEngine;
 
 public class WindStats : MonoBehaviour
 {
-    Treead _tree;    
+    Treead _tree;
+    Golire _golire;
+    
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {          
         _tree = collision.gameObject.GetComponent<Treead>();
+        _golire = collision.gameObject.GetComponent<Golire>();
+
         if(collision.gameObject.layer == 13)
         {   
-            if(_tree.type == EnemyTypes.Treead)
+            if(collision.gameObject.name == "Treead")
             {
                 Debug.Log("RASENGAN!");
-                _tree._burnTime = 0f;
-                Destroy(this.gameObject);
-            }
-            if(_tree.type == EnemyTypes.Breeze)
+                _tree._burnTime = 0f;       
+            }  
+            if(collision.gameObject.name == "Golire")
             {
-
-            }
-            if(_tree.type == EnemyTypes.Golire)
-            {
-
+                Debug.Log("You'r not burning anymore!");
+                _golire.extinguished = true;
+                StartCoroutine(_golire.ExtinguishTime());
             }
         }               
 
         if(collision.gameObject.layer == 12)
         {
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            Destroy(collision.gameObject); 
         }
 
-        if(collision.gameObject.layer == 8)
-        {                                             
-            Destroy(this.gameObject);
+        if(collision.gameObject.layer == 9)
+        {     
+            
         }
+        Destroy(this.gameObject);
     }
 
 }

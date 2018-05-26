@@ -5,23 +5,23 @@ using UnityEngine;
 public class FlamethrowerStats : MonoBehaviour
 {
     Treead _tree;
+    Golire _golire;
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         _tree = collision.gameObject.GetComponent<Treead>();
+        _golire = collision.gameObject.GetComponent<Golire>();
+
         if(collision.gameObject.layer == 13)
         {
-            if(_tree.type == EnemyTypes.Treead)
+            if(collision.gameObject.name == "Treead")
             {
                 _tree.Damage(1);
-            }
-            if(_tree.type == EnemyTypes.Breeze)
+            }   
+            if(collision.gameObject.name == "Golire")
             {
-
-            }
-            if(_tree.type == EnemyTypes.Golire)
-            {
-
+                Debug.Log("Burn again!");
+                _golire.extinguished = false;
             }
 
         }
