@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour, IDamageable<int>
+public class PlayerStats : MonoBehaviour, IDamageable<float>
 {
-    private int _hp = 200;
-    private int _maxHP = 200;
+    private float _hp = 200;
+    private float _maxHP = 200;
     public bool _canRegen = true;
 
 	// Use this for initialization
 	void Start ()
     {
-        regeneration();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-		
-	}
+        regeneration();
+
+    }
 
     public void regeneration()
     {
-        if(_canRegen && (_hp <= _maxHP) )
+        if(_canRegen && (_hp < _maxHP))
         {
-            Damage(-1);
+            Damage(-2 * Time.deltaTime);
+            //Debug.Log("playerHP: " + _hp);
         }
+        else
+            StartCoroutine(RegenerationTime());
     }   
 
     public void death()
@@ -33,7 +36,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<int>
         Time.timeScale = 0f;
     }
 
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
         Debug.Log("player HP: " + _hp);
         _hp -= damage;

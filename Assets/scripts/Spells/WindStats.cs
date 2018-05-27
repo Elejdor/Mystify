@@ -24,8 +24,7 @@ public class WindStats : MonoBehaviour
             if(collision.gameObject.name == "Golire")
             {
                 Debug.Log("You'r not burning anymore!");
-                _golire.extinguished = true;
-                StartCoroutine(_golire.ExtinguishTime());
+                _golire.extinguished = true;                 
             }
         }               
 

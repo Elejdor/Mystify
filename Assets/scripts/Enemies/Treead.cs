@@ -9,7 +9,8 @@ public class Treead : MonoBehaviour, IDamageable<int>
     [SerializeField]
     Transform _player;
     [SerializeField]
-    SpriteRenderer _renderer;
+    SpriteRenderer _renderer;   
+    PlayerStats _playerStat;
 
     private int _hpMax;
     private int _hp;
@@ -34,6 +35,7 @@ public class Treead : MonoBehaviour, IDamageable<int>
         _attackRange = 3f;
         _attackReady = true;
         _isBurning = false;
+        _playerStat = _player.GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -88,14 +90,16 @@ public class Treead : MonoBehaviour, IDamageable<int>
     }
 
     public void attack()
-    {                           
+    {                             
+        _playerStat.Damage(50);
+        _playerStat._canRegen = false;
         _attackReady = false;
         StartCoroutine( AttackCooldown() );    
     }
 
     public bool canAttack()
     {
-        if ( (_distance < _attackRange) && _attackReady == true)
+        if ( (_distance < _attackRange) && _attackReady)
             return true;
         else
             return false;
@@ -113,7 +117,7 @@ public class Treead : MonoBehaviour, IDamageable<int>
 
     public void Damage(int damage)
     {
-        Debug.Log("HP: " + _hp);
+        Debug.Log("treeadHP: " + _hp);
         _hp -= damage;
         if(_hp <= 0)
             death();

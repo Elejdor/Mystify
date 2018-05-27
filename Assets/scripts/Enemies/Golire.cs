@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Golire : MonoBehaviour, IDamageable<int>
+public class Golire : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     private GameObject _golire;
@@ -16,7 +16,7 @@ public class Golire : MonoBehaviour, IDamageable<int>
     private Vector2 _dir;
     private CastFireball _fire;
                          
-    private int _hp = 200;
+    private float _hp = 200;
     private bool _canCast = true;
 
     public bool extinguished = false;  
@@ -39,8 +39,10 @@ public class Golire : MonoBehaviour, IDamageable<int>
     {
         if(extinguished)
         {
-            Damage(1);
+            Damage(25 * Time.deltaTime);   
+            StartCoroutine(ExtinguishTime());
         }      
+            
     }
 
     public void aim()
@@ -74,9 +76,9 @@ public class Golire : MonoBehaviour, IDamageable<int>
         Destroy(_golire);
     }
 
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
-        Debug.Log("HP: " + _hp);
+        Debug.Log("golireHP: " + _hp);
         _hp -= damage;
         if(_hp <= 0)
             death();
@@ -100,7 +102,7 @@ public class Golire : MonoBehaviour, IDamageable<int>
 
     public IEnumerator ExtinguishTime()
     {
-        float extTime = 1f;
+        float extTime = 5f;
         while(extTime > 0f)
         {      
             yield return null;
