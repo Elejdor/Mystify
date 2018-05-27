@@ -31,7 +31,8 @@ public class Golire : MonoBehaviour, IDamageable<float>
 	void Update ()
     {
         aim();
-        throwFireball();
+        if( Mathf.Abs(_player.transform.position.x - _golire.transform.position.x) < 30 )
+            throwFireball();
         extinguish();
 	}
 

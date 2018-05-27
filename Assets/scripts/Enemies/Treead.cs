@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Treead : MonoBehaviour, IDamageable<int>
+public class Treead : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     GameObject _tree;
@@ -13,7 +13,7 @@ public class Treead : MonoBehaviour, IDamageable<int>
     PlayerStats _playerStat;
 
     private int _hpMax;
-    private int _hp;
+    private float _hp;
 
     private float _velocity;
     private float _attackRange;
@@ -115,7 +115,7 @@ public class Treead : MonoBehaviour, IDamageable<int>
         Destroy(_tree);
     }
 
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
         Debug.Log("treeadHP: " + _hp);
         _hp -= damage;

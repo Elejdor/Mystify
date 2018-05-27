@@ -16,7 +16,7 @@ public class FlamethrowerStats : MonoBehaviour
         {
             if(collision.gameObject.name == "Treead")
             {
-                _tree.Damage(1);
+                _tree.Damage(10 * Time.deltaTime);
             }   
             if(collision.gameObject.name == "Golire")
             {

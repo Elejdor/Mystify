@@ -31,12 +31,7 @@ public class WindStats : MonoBehaviour
         if(collision.gameObject.layer == 12)
         {
             Destroy(collision.gameObject); 
-        }
-
-        if(collision.gameObject.layer == 9)
-        {     
-            
-        }
+        }     
         Destroy(this.gameObject);
     }
 
