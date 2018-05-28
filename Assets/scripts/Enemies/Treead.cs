@@ -2,50 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Treead : MonoBehaviour
+public class Treead : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     GameObject _tree;
     [SerializeField]
     Transform _player;
     [SerializeField]
-    SpriteRenderer _renderer;
+    SpriteRenderer _renderer;   
+    PlayerStats _playerStat;
 
-    public int _hpMax { get; private set; }
-    public int _hp { get; private set; }
-    public float _velocity { get; private set; }
-    public float _attackRange{ get; private set; }   
-    bool _attackReady;
-    bool _isBurning;
-    float _distance;
+    private int _hpMax;
+    private float _hp;
+
+    private float _velocity;
+    private float _attackRange;
+    private float _distance;
+
+    public float _burnTime;
+    public bool _isBurning;
+    public bool _attackReady;  
+
+   
 
 
     void Start()
-    {
+    {                            
         _hpMax = 250;
         _hp = _hpMax;
         _velocity = 2f;
+        _burnTime = 4f;
         _attackRange = 3f;
         _attackReady = true;
         _isBurning = false;
+        _playerStat = _player.GetComponent<PlayerStats>();
     }
 
     private void Update()
-    {
+    {   
         _distance = Mathf.Abs(_player.position.x - _tree.transform.position.x);
 
-        if(_distance < 10f)
+        if( (_distance < 10f) || (_hp != _hpMax) )
         {                                   
             move();
         }
         if( canAttack() )
         {
             attack();
-        }
-        if(_hp <= 0)
-        {
-            death();
         }
     }
 
@@ -60,18 +63,15 @@ public class Treead : MonoBehaviour
         }
         _attackReady = true;
     }
-
+      
     IEnumerator BurnTime()
-    {
-        float _burnTime = 3f;
-        while( _burnTime > 0 )
-        {      
-            _hp -= 5;
-            Debug.Log("HP: " + _hp);
+    {                        
+        while(_burnTime > 0)
+        {
+            Damage(5);                  
             yield return new WaitForSeconds(1);
-            _burnTime -= Time.deltaTime;
-        }
-        _isBurning = false;
+            _burnTime -= 1;
+        }                   
     }
 
     public void move()
@@ -90,23 +90,19 @@ public class Treead : MonoBehaviour
     }
 
     public void attack()
-    {
-        Debug.Log( "hit!" );
+    {                             
+        _playerStat.Damage(50);
+        _playerStat._canRegen = false;
         _attackReady = false;
-        StartCoroutine( AttackCooldown() );
+        StartCoroutine( AttackCooldown() );    
     }
 
     public bool canAttack()
     {
-        if ( (_distance < _attackRange) && _attackReady == true)
+        if ( (_distance < _attackRange) && _attackReady)
             return true;
         else
             return false;
-    }
-
-    public void death()
-    {
-        Destroy( _tree );
     }
 
     public void afterBurn()
@@ -114,19 +110,18 @@ public class Treead : MonoBehaviour
         StartCoroutine( BurnTime() );     
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Fireball")
-        {
-            _hp -= 50;
-            Debug.Log("HP: " + _hp);
-            if(_isBurning == false)
-            {
-                _isBurning = true;
-                afterBurn();
-            }     
-            Destroy(collision.gameObject);
-        }
+    public void death()
+    {                    
+        Destroy(_tree);
     }
+
+    public void Damage(float damage)
+    {
+        Debug.Log("treeadHP: " + _hp);
+        _hp -= damage;
+        if(_hp <= 0)
+            death();
+    }
+    
 }
 
