@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
     private float _maxHP = 200;
     public bool _canRegen = true;
 
+<<<<<<< HEAD
 	// Use this for initialization
 	void Start ()
     {
@@ -18,6 +19,11 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
     {
         regeneration();
 
+=======
+	void Update ()
+    {
+        regeneration();    
+>>>>>>> Uniting
     }
 
     public void regeneration()

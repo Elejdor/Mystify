@@ -1,10 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f82787fb3c10ccb488aab4dfc27991de
 timeCreated: 1527226014
 licenseType: Free
+=======
+guid: 509702bd52b9c4447bd19162c9616bf6
+>>>>>>> Uniting
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 100100000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

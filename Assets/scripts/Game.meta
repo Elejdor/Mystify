@@ -1,8 +1,11 @@
 fileFormatVersion: 2
 guid: c1539963eda50284aa6b285a37c2f0ac
 folderAsset: yes
+<<<<<<< HEAD
 timeCreated: 1526229253
 licenseType: Free
+=======
+>>>>>>> Uniting
 DefaultImporter:
   externalObjects: {}
   userData: 

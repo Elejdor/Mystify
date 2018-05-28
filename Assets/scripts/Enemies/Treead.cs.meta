@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: eba2705e5b93bb1469b80940c63bddd7
+<<<<<<< HEAD:Assets/scripts/Enemies/Treead.cs.meta
 timeCreated: 1527224665
 licenseType: Free
+=======
+>>>>>>> Uniting:Assets/scripts/Enemies/Treead.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
