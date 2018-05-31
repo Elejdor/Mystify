@@ -15,6 +15,7 @@ public class CastWind : MonoBehaviour
     public void Cast( Vector2 dir )
     {
         GameObject go = (GameObject)Instantiate(wind, castPoint.transform.position, Quaternion.identity);
+        go.transform.right = dir.normalized;
         go.GetComponent<Rigidbody2D>().velocity = dir * velocity;
         Destroy( go, 3f );
     }
