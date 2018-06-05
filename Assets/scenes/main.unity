@@ -849,6 +849,25 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114646726541941564, guid: 6534bbbef82a45742aa5f85a4401eb2f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646726541941564, guid: 6534bbbef82a45742aa5f85a4401eb2f,
+        type: 2}
+      propertyPath: shakeDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114646726541941564, guid: 6534bbbef82a45742aa5f85a4401eb2f,
+        type: 2}
+      propertyPath: amount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090158525767066, guid: 6534bbbef82a45742aa5f85a4401eb2f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6534bbbef82a45742aa5f85a4401eb2f, type: 2}
   m_IsPrefabParent: 0
@@ -915,6 +934,20 @@ MonoBehaviour:
   InstGround: {fileID: 1718634922}
   InstStal: {fileID: 457886667}
   Ground: {fileID: 1107572198408318, guid: 95a01933cb98dfd488e5ed67d05b8726, type: 2}
+--- !u!114 &468897870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 468897864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c737296fda5e1c34998b57a81b078f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 2
+  amount: 2
+  player: {fileID: 1461695400}
 --- !u!1 &552263384
 GameObject:
   m_ObjectHideFlags: 0
