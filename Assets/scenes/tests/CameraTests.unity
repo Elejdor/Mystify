@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &190834528
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.1953125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816630850982486, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 47ba7590a16e7c547a56b5cb761aeb2c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &232546065
 Prefab:
   m_ObjectHideFlags: 0
@@ -421,18 +463,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f81c01f6cc956438703899b8eab2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downRange: {x: 0, y: 0}
+  midRange: {x: 0, y: 0}
+  upRange: {x: 0, y: 0}
+  stalagnatsRange: {x: 0, y: 0}
   down:
-  - {fileID: 1133184475564170, guid: c9d15ba9b4101854cadebcd7b898420f, type: 2}
-  - {fileID: 1133184475564170, guid: c9d15ba9b4101854cadebcd7b898420f, type: 2}
-  - {fileID: 1133184475564170, guid: c9d15ba9b4101854cadebcd7b898420f, type: 2}
-  - {fileID: 1133184475564170, guid: c9d15ba9b4101854cadebcd7b898420f, type: 2}
-  - {fileID: 1133184475564170, guid: c9d15ba9b4101854cadebcd7b898420f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   mid:
-  - {fileID: 1157518879846510, guid: 2f399335495d89d4a8ed033e80adb025, type: 2}
-  - {fileID: 1749344844551348, guid: 58d49cf4f4ca17c4ea8c44ea6ad748df, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  up: []
+  stalagnats: []
   InstDown: {fileID: 1920194212}
   InstMid: {fileID: 1683089624}
+  InstUp: {fileID: 0}
   InstGround: {fileID: 914383706}
+  InstStal: {fileID: 0}
   Ground: {fileID: 1706804679395776, guid: 672786b5ecd24a644975a4e518c4753a, type: 2}
 --- !u!1 &1683089624
 GameObject:
