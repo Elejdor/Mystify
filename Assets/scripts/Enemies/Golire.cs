@@ -41,7 +41,7 @@ public class Golire : MonoBehaviour, IDamageable<float>
         if(extinguished)
         {
             Damage(25 * Time.deltaTime);   
-            StartCoroutine(ExtinguishTime());
+            StartCoroutine(ExtinguishTime(5f));
         }      
             
     }
@@ -93,22 +93,13 @@ public class Golire : MonoBehaviour, IDamageable<float>
         else
             castCooldown = 3f;
 
-        while(castCooldown > 0)
-        {    
-            yield return null;
-            castCooldown -= Time.deltaTime;
-        }
+        yield return new WaitForSeconds(castCooldown);
         _canCast = true;
     }
 
-    public IEnumerator ExtinguishTime()
-    {
-        float extTime = 5f;
-        while(extTime > 0f)
-        {      
-            yield return null;
-            extTime -= Time.deltaTime;
-        }
+    public IEnumerator ExtinguishTime(float extTime = 5f)
+    {                                                   
+        yield return new WaitForSeconds(extTime);
         extinguished = false;
     }
 

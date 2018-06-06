@@ -30,7 +30,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
     {                            
         _hpMax = 250;
         _hp = _hpMax;
-        _velocity = 2f;
+        _velocity = 8f;
         _burnTime = 4f;
         _attackRange = 3f;
         _attackReady = true;
@@ -117,8 +117,8 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void Damage(float damage)
     {
-        Debug.Log("treeadHP: " + _hp);
-        _hp -= damage;
+        Debug.Log("treeadHP: " + this._hp);
+        this._hp -= damage;
         if(_hp <= 0)
             death();
     }

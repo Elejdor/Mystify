@@ -19,7 +19,7 @@ public class FireballStats : MonoBehaviour
         {
             if(collision.gameObject.name == "Treead")
             {
-                _tree.Damage(50);
+                _tree.Damage(50);         
                 _tree._burnTime = 4f;
                 _tree.afterBurn();        
             }  
