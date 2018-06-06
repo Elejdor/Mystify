@@ -9,14 +9,18 @@ public class Breeze : MonoBehaviour, IDamageable<int>
     [SerializeField]
     Transform _player;
     [SerializeField]
-    SpriteRenderer _renderer;   
+    SpriteRenderer _renderer;
+    [SerializeField]
+    Rigidbody2D _breezePos;
 
     private int _hp;
     private float _speed;
+    Vector2 _dir;
                                      
 	void Start ()
     {                                        
         _speed = 5f;
+        _breezePos = GetComponent<Rigidbody2D>();
 	}
 	                                    
 	void Update ()
@@ -25,25 +29,9 @@ public class Breeze : MonoBehaviour, IDamageable<int>
 	}
 
     public void fly()
-    {
-        if(_player.position.x > (_breeze.transform.position.x + 0.3f))
-        {
-            _breeze.transform.Translate(Vector2.right * _speed * Time.deltaTime);
-            _renderer.flipX = true;
-        }
-        if(_player.position.x < (_breeze.transform.position.x - 0.3f))
-        {
-            _breeze.transform.Translate(Vector2.left * _speed * Time.deltaTime);
-            _renderer.flipX = false;
-        }
-        if(_player.position.y > (_breeze.transform.position.y - 3))
-        {
-            _breeze.transform.Translate(Vector2.up * _speed * Time.deltaTime);     
-        }
-        if(_player.position.y < (_breeze.transform.position.y + 3))
-        {
-            _breeze.transform.Translate(Vector2.down * _speed * Time.deltaTime);  
-        }
+    {                                              
+        _dir = _player.position - _breeze.transform.position; 
+        _breezePos.AddForce(_dir * _speed, ForceMode2D.Force);   
     }
 
     public void attack()
