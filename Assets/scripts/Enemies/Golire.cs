@@ -50,16 +50,10 @@ public class Golire : MonoBehaviour, IDamageable<float>
     {
         _dir = _player.position - _golire.transform.position;
         _dir.Normalize();
-        if(_player.position.x > _golire.transform.position.x)
-        {
-            _castPoint.transform.position = new Vector2( (_golire.transform.position.x + 4), _golire.transform.position.y);
-            _renderer.flipX = true;
-        }
-        else
-        {
-            _castPoint.transform.position = new Vector2(_golire.transform.position.x - 4, _golire.transform.position.y);
+        if(_player.position.x > _golire.transform.position.x) 
+            _renderer.flipX = true;  
+        else                                                                                                          
             _renderer.flipX = false;
-        }
     }
 
     public void throwFireball()

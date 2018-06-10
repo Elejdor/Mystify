@@ -8,7 +8,11 @@ public class FireballStats : MonoBehaviour
     Golire _golire;
     PlayerStats _player;
 
-                                   
+    [SerializeField]
+    ParticleSystem _fireParticle;
+
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _tree = collision.gameObject.GetComponent<Treead>();
@@ -34,9 +38,14 @@ public class FireballStats : MonoBehaviour
         if(collision.gameObject.layer == 9)
         {
             _player.Damage(50);
-            _player._canRegen = false;                     
+            _player._canRegen = false;
         }
         Destroy(this.gameObject);
+
+        _fireParticle.Play();
+        _fireParticle.transform.parent = null;
+        Destroy(_fireParticle, 3.0f);
+        Physics2D.IgnoreCollision(this.transform.GetComponent<Collider2D>(), _player.transform.GetComponent<Collider2D>());
     }
 
 }

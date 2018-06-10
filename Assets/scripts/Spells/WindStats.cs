@@ -6,6 +6,8 @@ public class WindStats : MonoBehaviour
 {
     Treead _tree;
     Golire _golire;
+    [SerializeField]
+    ParticleSystem _windParticle;
     
 
 
@@ -31,8 +33,13 @@ public class WindStats : MonoBehaviour
         if(collision.gameObject.layer == 12)
         {
             Destroy(collision.gameObject); 
-        }     
-        Destroy(this.gameObject);
-    }
+        }
 
+        Destroy(this.gameObject);
+
+        _windParticle.Play();
+        _windParticle.transform.parent = null;       
+        Destroy(_windParticle, 3.0f);
+
+    }
 }
