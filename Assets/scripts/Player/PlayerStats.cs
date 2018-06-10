@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable<float>
 {
-    private float _hp = 200;
-    private float _maxHP = 200;
+    public float _hp = 500;
+    public float _maxHP = 500;
     public bool _canRegen = true;
+
+    void Start()
+    {
+        _maxHP = 500;
+        _hp = _maxHP;
+    }
 
 	void Update ()
     {
@@ -17,9 +23,11 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
     {
         if(_canRegen && (_hp < _maxHP))
         {
-            Damage(-2 * Time.deltaTime);
+            Damage(-10 * Time.deltaTime);
             //Debug.Log("playerHP: " + _hp);
         }
+        else if(_hp > _maxHP)
+            _hp = _maxHP;
         else
             StartCoroutine(RegenerationTime());
     }   
@@ -40,11 +48,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
     public IEnumerator RegenerationTime()
     {
         float regenTime = 5f;
-        while(regenTime > 0f)
-        {
-            yield return null;
-            regenTime -= Time.deltaTime;
-        }
+        yield return new WaitForSeconds(regenTime);
         _canRegen = true;
     }
 
