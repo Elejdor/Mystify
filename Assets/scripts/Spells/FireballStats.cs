@@ -6,6 +6,7 @@ public class FireballStats : MonoBehaviour
 {
     Treead _tree;
     Golire _golire;
+    Anger _anger;
     PlayerStats _player;
 
                                    
@@ -13,6 +14,7 @@ public class FireballStats : MonoBehaviour
     {
         _tree = collision.gameObject.GetComponent<Treead>();
         _golire = collision.gameObject.GetComponent<Golire>();
+        _anger = collision.gameObject.GetComponent<Anger>();
         _player = collision.gameObject.GetComponent<PlayerStats>();
 
         if(collision.gameObject.layer == 13)
@@ -29,12 +31,22 @@ public class FireballStats : MonoBehaviour
                 _golire.extinguished = false;
             }
 
-        }                
+        }
+        if (collision.gameObject.layer == 14)
+        {
+            if (collision.gameObject.name == "Anger")
+            {
+                _anger.Damage(50);
+                _anger._canRegen = false;
+            }
+            
+        }
 
-        if(collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 9)
         {
             _player.Damage(50);
-            _player._canRegen = false;                     
+            _player._canRegen = false;
+            _anger._canRegen = false;
         }
         Destroy(this.gameObject);
     }
