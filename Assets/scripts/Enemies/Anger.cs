@@ -6,19 +6,20 @@ public class Anger : MonoBehaviour
 {
     [SerializeField]
     private GameObject _anger;
-    // [SerializeField]
-    // private SpriteRenderer _renderer;
     [SerializeField]
     private GameObject _player;
     [SerializeField]
     private GameObject _castPoint;
     [SerializeField]
     private GameObject _lance;
+    [SerializeField]
+    private float lanceOffset;
     private Vector2 _dir;
     private CastFireball _fire;
 
     [SerializeField]
     private float _hp = 200;
+    private static float maxHp;
     [SerializeField]
     private float castCooldown = 2f;
     [SerializeField]
@@ -27,13 +28,16 @@ public class Anger : MonoBehaviour
     private float lanceCooldown = 10f;
     private bool _canCast = true;
     private bool _canLance = true;
-    // Use this for initialization
+
+    public bool _canRegen = true;
+    
     void Start()
     {
+        maxHp = _hp;
         _fire = GetComponent<CastFireball>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         aim();
@@ -41,24 +45,24 @@ public class Anger : MonoBehaviour
             throwFireball();
         if (_canLance == true)
             StartCoroutine(Lance());
+
+        Regenerating();
     }
 
-
+    void Regenerating()
+    {
+        if (_canRegen && (_hp >= 0) && ((transform.position.x - _player.transform.position.x) < 25))
+        {
+            Damage(-20 * Time.deltaTime);
+        }
+        else
+            StartCoroutine(RegenerationTime());
+    }
 
     public void aim()
     {
         _dir = _player.transform.position - _anger.transform.position;
         _dir.Normalize();
-        //if (_player.position.x > _anger.transform.position.x)
-        //{
-        //    _castPoint.transform.position = new Vector2((_anger.transform.position.x + 4), _anger.transform.position.y);
-        //    _renderer.flipX = true;
-        //}
-        //else
-        //{
-        //    _castPoint.transform.position = new Vector2(_anger.transform.position.x - 4, _anger.transform.position.y);
-        //    _renderer.flipX = false;
-        //}
     }
 
     public void throwFireball()
@@ -79,7 +83,8 @@ public class Anger : MonoBehaviour
     public void Damage(float damage)
     {
         Debug.Log("angerHP: " + _hp);
-        _hp -= damage;
+        if (_hp + damage <= maxHp)
+            _hp += damage;
         if (_hp <= 0)
             death();
     }
@@ -92,9 +97,10 @@ public class Anger : MonoBehaviour
 
     IEnumerator Lance()
     {
-        _lance.transform.position = new Vector3(_lance.transform.position.x - 5, _lance.transform.position.y, _lance.transform.position.z);
+        _lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
         yield return new WaitForSeconds(lanceTime);
-        _lance.transform.position = new Vector3(_lance.transform.position.x + 5, _lance.transform.position.y, _lance.transform.position.z);
+
+        _lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
         _canLance = false;
         StartCoroutine("LanceCooldown");
         
@@ -105,5 +111,16 @@ public class Anger : MonoBehaviour
         yield return new WaitForSeconds(lanceCooldown);
         _canLance = true;
         
+    }
+
+    public IEnumerator RegenerationTime()
+    {
+        float regenTime = 5f;
+        while (regenTime > 0f)
+        {
+            yield return null;
+            regenTime -= Time.deltaTime;
+        }
+        _canRegen = true;
     }
 }
