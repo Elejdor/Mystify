@@ -5,14 +5,11 @@ using UnityEngine;
 public class WindStats : MonoBehaviour
 {
     Treead _tree;
-    Golire _golire;
-<<<<<<< HEAD
+    Golire _golire;          
     [SerializeField]
     ParticleSystem _windParticle;
-    
-=======
-    Anger _anger;
->>>>>>> 9dcca073c7a45c1729eac6e5f2f0164474e1798e
+                      
+    Anger _anger;                                  
 
 
     private void OnCollisionEnter2D(Collision2D collision)

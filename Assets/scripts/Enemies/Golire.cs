@@ -61,6 +61,7 @@ public class Golire : MonoBehaviour, IDamageable<float>
         if(_canCast)
         {
             _fire.Cast(_dir);
+
             _canCast = false;
             StartCoroutine(FireballCooldown());
         }

@@ -235,6 +235,12 @@ Prefab:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1180277439}
+    - target: {fileID: 114155222706645766, guid: d3e0fb50df7a0ab488831d9a58639b60,
+        type: 2}
+      propertyPath: fireball
+      value: 
+      objectReference: {fileID: 1736285576085240, guid: c3296e88273a3d449a39ed66a8f79780,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3e0fb50df7a0ab488831d9a58639b60, type: 2}
   m_IsPrefabParent: 0
@@ -1219,7 +1225,9 @@ MonoBehaviour:
   InstUp: {fileID: 731413711}
   InstGround: {fileID: 1718634922}
   InstStal: {fileID: 457886667}
+  InstFogg: {fileID: 0}
   Ground: {fileID: 1107572198408318, guid: 95a01933cb98dfd488e5ed67d05b8726, type: 2}
+  Fogg: {fileID: 0}
 --- !u!4 &468897866 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4090158525767066, guid: 6534bbbef82a45742aa5f85a4401eb2f,
@@ -2834,7 +2842,7 @@ Prefab:
         type: 2}
       propertyPath: fireball
       value: 
-      objectReference: {fileID: 1140968241707498, guid: 9e5b580ee19bfc24ab0f71bf1b70c04a,
+      objectReference: {fileID: 1478790565770140, guid: be0b9c6f19f63534aa429b99ccc272b6,
         type: 2}
     - target: {fileID: 114533379540154494, guid: 5b585f0d964eaf04f98ca7e1e301846d,
         type: 2}
