@@ -11,27 +11,40 @@ public class Shake : MonoBehaviour {
     GameObject player;
 
     float duration = -10;
+    static public bool canShake = false;
 
     Vector3 playerPos;
     Vector3 rand;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if(canShake)
         {
-            duration = shakeDuration;
+            ShakeBegin(0.5f, 0.5f);
+            StartCoroutine(ShakeTime(0.2f) );
         }
-        if (duration > 0)
+    }
+
+    public IEnumerator ShakeTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        canShake = false;
+    }
+
+    public void ShakeBegin(float shakeDuration, float amount)
+    {
+        duration = shakeDuration; 
+        if (shakeDuration > 0)
         {
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, -10);
             rand = new Vector3(Random.value, Random.value, -10);
-            transform.position = playerPos + rand * amount * duration;
-            duration -= Time.deltaTime;
+            transform.position = playerPos + rand * amount * shakeDuration;
+            shakeDuration -= Time.deltaTime;
         }
-        else if (duration <= 0 && duration >= -5)
+        else if (shakeDuration <= 0 && shakeDuration >= -5)
         {
-            duration = -10;
+            shakeDuration = -10;
             transform.position = new Vector3(player.transform.position.x, player.transform.position.y+2, -10);
-        }
+        }             
     }
 }

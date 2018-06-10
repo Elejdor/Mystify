@@ -8,6 +8,8 @@ public class FireballStats : MonoBehaviour
     Golire _golire;
     Anger _anger;
     PlayerStats _player;
+    [SerializeField]
+    Shake _shaker;
 
     [SerializeField]
     ParticleSystem _fireParticle;
@@ -20,6 +22,7 @@ public class FireballStats : MonoBehaviour
         _golire = collision.gameObject.GetComponent<Golire>();
         _anger = collision.gameObject.GetComponent<Anger>();
         _player = collision.gameObject.GetComponent<PlayerStats>();
+        _shaker = collision.gameObject.GetComponent<Shake>();
 
         
         if(collision.gameObject.layer == 13)
@@ -57,7 +60,8 @@ public class FireballStats : MonoBehaviour
 
         _fireParticle.Play();
         _fireParticle.transform.parent = null;
-        Destroy(_fireParticle, 3.0f);  
+        Destroy(_fireParticle, 2.0f);
+        Shake.canShake = true;
     }
 
 }
