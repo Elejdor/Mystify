@@ -32,8 +32,7 @@ public class Shake : MonoBehaviour {
     }
 
     public void ShakeBegin(float shakeDuration, float amount)
-    {
-        duration = shakeDuration; 
+    {                  
         if (shakeDuration > 0)
         {
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, -10);
