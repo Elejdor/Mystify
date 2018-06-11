@@ -7,6 +7,8 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
     public float _hp = 500;
     public float _maxHP = 500;
     public bool _canRegen = true;
+    [SerializeField]
+    ParticleSystem [] _particles;
 
     void Start()
     {
@@ -39,6 +41,10 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
 
     public void Damage(float damage)
     {
+        if(damage > 0)
+            _particles[0].Play();
+        else if(damage < 0)
+            _particles[1].Emit(2);
         Debug.Log("player HP: " + _hp);
         _hp -= damage;
         if(_hp <= 0)
