@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastWind : MonoBehaviour
+public class CastWind : MonoBehaviour, IProjectileCaster
 {
     [SerializeField]
     GameObject castPoint;

@@ -10,6 +10,8 @@ public class Shake : MonoBehaviour {
     [SerializeField]
     GameObject player;
 
+    SimpleCameraFollow cam;
+
     float duration = -10;
     static public bool canShake = false;
 
@@ -35,7 +37,7 @@ public class Shake : MonoBehaviour {
     {                  
         if (shakeDuration > 0)
         {
-            playerPos = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+            playerPos = new Vector3(cam.pos.x, cam.pos.y, -10);
             rand = new Vector3(Random.value, Random.value, -10);
             transform.position = playerPos + rand * amount * shakeDuration;
             shakeDuration -= Time.deltaTime;
@@ -43,7 +45,7 @@ public class Shake : MonoBehaviour {
         else if (shakeDuration <= 0 && shakeDuration >= -5)
         {
             shakeDuration = -10;
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y+2, -10);
+            transform.position = new Vector3(cam.pos.x, cam.pos.y, -10);
         }             
     }
 }

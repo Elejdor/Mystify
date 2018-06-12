@@ -54,6 +54,7 @@ public class FireballStats : MonoBehaviour
         {
             _player.Damage(50);                          
             _player._canRegen = false;       
+            Shake.canShake = true;
             //_anger._canRegen = false;             
         }
         Destroy(this.gameObject);
@@ -61,7 +62,6 @@ public class FireballStats : MonoBehaviour
         _fireParticle.Play();
         _fireParticle.transform.parent = null;
         Destroy(_fireParticle, 2.0f);
-        Shake.canShake = true;
     }
 
 }
