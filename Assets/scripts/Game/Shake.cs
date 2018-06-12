@@ -8,14 +8,12 @@ public class Shake : MonoBehaviour {
     [SerializeField]
         float amount;
     [SerializeField]
-    GameObject player;
-
-    SimpleCameraFollow cam;
+    Transform cam;
 
     float duration = -10;
     static public bool canShake = false;
 
-    Vector3 playerPos;
+    Vector3 shakePos;
     Vector3 rand;
 
     void Update()
@@ -37,15 +35,15 @@ public class Shake : MonoBehaviour {
     {                  
         if (shakeDuration > 0)
         {
-            playerPos = new Vector3(cam.pos.x, cam.pos.y, -10);
+            shakePos = new Vector3(cam.position.x, cam.position.y, -10);
             rand = new Vector3(Random.value, Random.value, -10);
-            transform.position = playerPos + rand * amount * shakeDuration;
+            transform.position = shakePos + rand * amount * shakeDuration;
             shakeDuration -= Time.deltaTime;
         }
         else if (shakeDuration <= 0 && shakeDuration >= -5)
         {
             shakeDuration = -10;
-            transform.position = new Vector3(cam.pos.x, cam.pos.y, -10);
+            transform.position = new Vector3(cam.position.x, cam.position.y, -10);
         }             
     }
 }
