@@ -116,7 +116,7 @@ public class EnviroGenerator : MonoBehaviour
             InstGround.transform.position = new Vector3(InstGround.transform.position.x + 25.5f, InstGround.transform.position.y, InstGround.transform.position.z);
             flagGround = false;
         }
-        if((InstFogg.transform.position.x <= (transform.position.x + 80)) && flagFogg == true)  //fogg
+        if(InstFogg && (InstFogg.transform.position.x <= (transform.position.x + 80)) && flagFogg == true)  //fogg
         {
             Instantiate(Fogg, InstFogg.transform.position, Quaternion.identity);
             InstFogg.transform.position = new Vector3(InstFogg.transform.position.x + 102, InstFogg.transform.position.y, InstFogg.transform.position.z);

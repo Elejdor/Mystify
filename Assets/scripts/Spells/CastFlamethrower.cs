@@ -2,30 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastFlamethrower : MonoBehaviour {
+public class CastFlamethrower : MonoBehaviour
+{
 
     [SerializeField]
     GameObject castPoint;
 
     [SerializeField]
-    GameObject flamethrower;
-
-    GameObject flame;
+    FlameEffect flame;
 
     public void Cast()
-    { 
-        flame = (GameObject)Instantiate( flamethrower, (Vector2)castPoint.transform.position, Quaternion.identity );
-        StartCoroutine( HandFollow() );
-        Destroy( flame, 3f );   
+    {
+        flame.Play();
+        FollowHand();
     }
 
-    IEnumerator HandFollow()
+    public void Stop()
     {
-        while ( flame )
-        {
-            flame.transform.position = (Vector2)castPoint.transform.position;
-            flame.transform.rotation = castPoint.transform.rotation;
-            yield return null;
-        }
+        flame.Stop();
+    }
+
+    void FollowHand()
+    {
+        flame.transform.position = (Vector2)castPoint.transform.position;
+        flame.transform.rotation = castPoint.transform.rotation;
     }
 }

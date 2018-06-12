@@ -45,7 +45,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
             _particles[0].Play();
         else if(damage < 0)
             _particles[1].Emit(2);
-        Debug.Log("player HP: " + _hp);
+        //Debug.Log("player HP: " + _hp);
         _hp -= damage;
         if(_hp <= 0)
             death();
