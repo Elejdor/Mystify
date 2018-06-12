@@ -96,7 +96,7 @@ public class CharacterMovement : MonoBehaviour
         if ( hit.Length > 0 )
         {
             return true;
-        }
+        }      
 
         return false;
     }

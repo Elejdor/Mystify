@@ -97,7 +97,7 @@ public class EnviroGenerator : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
         if((InstDown.transform.position.x <= (transform.position.x + 30)) && flagDown == true) //down
             Generate(down, 10, InstDown, downRange, flagDown, false, false);
 

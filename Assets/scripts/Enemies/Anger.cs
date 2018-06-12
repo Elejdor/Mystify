@@ -39,7 +39,7 @@ public class Anger : MonoBehaviour
 
     
     void Update()
-    {
+    {    
         aim();
         if (Mathf.Abs(_player.transform.position.x - _anger.transform.position.x) < 30)
             throwFireball();

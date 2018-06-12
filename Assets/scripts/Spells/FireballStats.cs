@@ -53,9 +53,9 @@ public class FireballStats : MonoBehaviour
         if (collision.gameObject.layer == 9)
         {
             _player.Damage(50);                          
-            _player._canRegen = false;       
+            _player._canRegen = false;
+            //_anger._canRegen = false; 
             Shake.canShake = true;
-            //_anger._canRegen = false;             
         }
         Destroy(this.gameObject);
 
