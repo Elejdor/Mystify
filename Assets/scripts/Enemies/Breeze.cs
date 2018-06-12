@@ -31,7 +31,11 @@ public class Breeze : MonoBehaviour, IDamageable<int>
     public void fly()
     {                                              
         _dir = _player.position - _breeze.transform.position; 
-        _breezePos.AddForce(_dir * _speed, ForceMode2D.Force);   
+        _breezePos.AddForce(_dir * _speed, ForceMode2D.Force);
+        if(_breeze.transform.position.y < 5f)
+        {
+            _breezePos.AddForce(Vector2.up * (1 / (_breeze.transform.position.y - 5)), ForceMode2D.Force);
+        }
     }
 
     public void attack()

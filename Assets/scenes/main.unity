@@ -241,6 +241,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1735722164239376, guid: c3296e88273a3d449a39ed66a8f79780,
         type: 2}
+    - target: {fileID: 1378753675124274, guid: d3e0fb50df7a0ab488831d9a58639b60, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3e0fb50df7a0ab488831d9a58639b60, type: 2}
   m_IsPrefabParent: 0
@@ -1255,17 +1259,17 @@ Prefab:
     - target: {fileID: 20686084571677396, guid: 6534bbbef82a45742aa5f85a4401eb2f,
         type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0.7830189
+      value: 0.16037738
       objectReference: {fileID: 0}
     - target: {fileID: 20686084571677396, guid: 6534bbbef82a45742aa5f85a4401eb2f,
         type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0.7830189
+      value: 0.16037738
       objectReference: {fileID: 0}
     - target: {fileID: 20686084571677396, guid: 6534bbbef82a45742aa5f85a4401eb2f,
         type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0.7830189
+      value: 0.16037738
       objectReference: {fileID: 0}
     - target: {fileID: 20686084571677396, guid: 6534bbbef82a45742aa5f85a4401eb2f,
         type: 2}
@@ -19081,7 +19085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1919278284
 Transform:
   m_ObjectHideFlags: 0
@@ -19539,7 +19543,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
