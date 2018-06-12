@@ -1370,7 +1370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDuration: 0
   amount: 0
-  player: {fileID: 1461695400}
+  cam: {fileID: 1322835340}
 --- !u!20 &468897870 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20686084571677396, guid: 6534bbbef82a45742aa5f85a4401eb2f,
@@ -18179,6 +18179,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!4 &1322835340 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4584734293836146, guid: 6534bbbef82a45742aa5f85a4401eb2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 468897863}
 --- !u!1001 &1383773590
 Prefab:
   m_ObjectHideFlags: 0
