@@ -5,7 +5,8 @@ using UnityEngine;
 public class WindStats : MonoBehaviour
 {
     Treead _tree;
-    Golire _golire;          
+    Golire _golire;
+    Breeze _breeze;   
     [SerializeField]
     ParticleSystem _windParticle;
                       
@@ -17,8 +18,9 @@ public class WindStats : MonoBehaviour
         _tree = collision.gameObject.GetComponent<Treead>();
         _golire = collision.gameObject.GetComponent<Golire>();
         _anger = collision.gameObject.GetComponent<Anger>();
+        _breeze = collision.gameObject.GetComponent<Breeze>();
 
-        if(collision.gameObject.layer == 13)
+        if (collision.gameObject.layer == 13)
         {   
             if(collision.gameObject.name == "Treead")
             {
@@ -27,8 +29,12 @@ public class WindStats : MonoBehaviour
             }  
             if(collision.gameObject.name == "Golire")
             {
-                Debug.Log("You'r not burning anymore!");
+                Debug.Log("You're not burning anymore!");
                 _golire.extinguished = true;                 
+            }
+            if (collision.gameObject.name == "Breeze")
+            {
+                _breeze.Damage(50);
             }
         }
         if (collision.gameObject.layer == 14)

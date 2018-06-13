@@ -8,6 +8,7 @@ public class FireballStats : MonoBehaviour
     Golire _golire;
     Anger _anger;
     PlayerStats _player;
+    Breeze _breeze;
     [SerializeField]
     Shake _shaker;
 
@@ -22,6 +23,7 @@ public class FireballStats : MonoBehaviour
         _golire = collision.gameObject.GetComponent<Golire>();
         _anger = collision.gameObject.GetComponent<Anger>();
         _player = collision.gameObject.GetComponent<PlayerStats>();
+        _breeze = collision.gameObject.GetComponent<Breeze>();
         _shaker = collision.gameObject.GetComponent<Shake>();
 
         
@@ -37,6 +39,10 @@ public class FireballStats : MonoBehaviour
             {
                 Debug.Log("Burn again!");
                 _golire.extinguished = false;
+            }
+            if (collision.gameObject.name == "Treead")
+            {
+                _breeze.Damage(50);
             }
 
         }

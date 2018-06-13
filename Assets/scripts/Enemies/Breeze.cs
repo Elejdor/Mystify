@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Breeze : MonoBehaviour, IDamageable<int>
+public class Breeze : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     GameObject _breeze;
@@ -13,7 +13,9 @@ public class Breeze : MonoBehaviour, IDamageable<int>
     [SerializeField]
     Rigidbody2D _breezePos;
 
-    private int _hp;
+    PlayerStats player;
+
+    private float _hp;
     private float _speed;
     Vector2 _dir;
                                      
@@ -45,15 +47,28 @@ public class Breeze : MonoBehaviour, IDamageable<int>
 
     public void death()
     {
-
+        Destroy(_breeze);
     }
 
 
-    public void Damage(int damage)
+    public void Damage(float damage)
     {
         Debug.Log("HP: " + _hp);
         _hp -= damage;
-        //if(_hp <= 0)
-            //death();
+        if(_hp <= 0)
+            death();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        player = collision.gameObject.GetComponent<PlayerStats>();
+
+        if (collision.gameObject.layer == 9)
+        {
+            player.Damage(50);
+            player._canRegen = false;
+            Shake.canShake = true;
+            death();
+        }
     }
 }
