@@ -2887,7 +2887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castPoint: {fileID: 1147995823549062}
-  flamethrower: {fileID: 0}
+  flame: {fileID: 0}
 --- !u!114 &114373766517093560
 MonoBehaviour:
   m_ObjectHideFlags: 1
