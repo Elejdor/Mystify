@@ -6,6 +6,7 @@ public class FlamethrowerStats : MonoBehaviour
 {
     Treead _tree;
     Golire _golire;
+    Breeze _breeze;
     Anger _anger;
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -13,8 +14,9 @@ public class FlamethrowerStats : MonoBehaviour
         _tree = collision.gameObject.GetComponent<Treead>();
         _golire = collision.gameObject.GetComponent<Golire>();
         _anger = collision.gameObject.GetComponent<Anger>();
+        _breeze = collision.gameObject.GetComponent<Breeze>();
 
-        if(collision.gameObject.layer == 13)
+        if (collision.gameObject.layer == 13)
         {
             if(collision.gameObject.name == "Treead")
             {
@@ -24,6 +26,10 @@ public class FlamethrowerStats : MonoBehaviour
             {
                 Debug.Log("Burn again!");
                 _golire.extinguished = false;
+            }
+            if (collision.gameObject.name == "Breeze")
+            {
+                _breeze.Damage(10 * Time.deltaTime);
             }
 
         }
