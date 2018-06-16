@@ -21,7 +21,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
 
     void Start()
     {
-        _speed = 5f;
+        _speed = 1f;
         _breezePos = GetComponent<Rigidbody2D>();
     }
 
@@ -34,9 +34,9 @@ public class Breeze : MonoBehaviour, IDamageable<float>
     {
         _dir = _player.position - _breeze.transform.position;
         _breezePos.AddForce(_dir * _speed, ForceMode2D.Force);
-        if (_breeze.transform.position.y < 5f)
+        if (_breeze.transform.position.y < 8f)
         {
-            _breezePos.AddForce(Vector2.up * (1 / (_breeze.transform.position.y - 5)), ForceMode2D.Force);
+            _breezePos.AddForce(Vector2.up * (1 / (_breeze.transform.position.y - 8)), ForceMode2D.Force);
         }
     }
 
@@ -62,7 +62,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
         if (collision.gameObject.layer == 9)
         {
             death();
-            player.Damage(50);
+            player.Damage(20);
             player._canRegen = false;
             Shake.canShake = true;
         }

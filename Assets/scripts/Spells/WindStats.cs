@@ -24,7 +24,7 @@ public class WindStats : MonoBehaviour
         {   
             if(collision.gameObject.name == "Treead")
             {
-                Debug.Log("RASENGAN!");
+                _tree.transform.Translate( new Vector2(-2, 0));
                 _tree._burnTime = 0f;       
             }  
             if(collision.gameObject.name == "Golire")

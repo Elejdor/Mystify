@@ -28,11 +28,11 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     void Start()
     {                            
-        _hpMax = 250;
+        _hpMax = 2000;
         _hp = _hpMax;
         _velocity = 8f;
         _burnTime = 4f;
-        _attackRange = 3f;
+        _attackRange = 15f;
         _attackReady = true;
         _isBurning = false;
         _playerStat = _player.GetComponent<PlayerStats>();
@@ -42,7 +42,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
     {   
         _distance = Mathf.Abs(_player.position.x - _tree.transform.position.x);
 
-        if( (_distance < 10f) || (_hp != _hpMax) )
+        if( (_distance < 100f) || (_hp != _hpMax) )
         {                                   
             move();
         }

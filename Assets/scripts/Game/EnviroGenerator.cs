@@ -22,6 +22,8 @@ public class EnviroGenerator : MonoBehaviour
     [SerializeField] GameObject InstFogg;
     [SerializeField] GameObject Ground;
     [SerializeField] GameObject Fogg;
+    [SerializeField] GameObject _golire;         
+    [SerializeField] GameObject _breeze;
 
     bool flagDown = true;
     bool flagMid = true;
@@ -113,6 +115,7 @@ public class EnviroGenerator : MonoBehaviour
         if((InstGround.transform.position.x <= (transform.position.x + 35)) && flagGround == true) //ground
         {
             Instantiate(Ground, InstGround.transform.position, Quaternion.identity);
+            Instantiate(_golire, InstGround.transform.position, Quaternion.identity);
             InstGround.transform.position = new Vector3(InstGround.transform.position.x + 25.5f, InstGround.transform.position.y, InstGround.transform.position.z);
             flagGround = false;
         }
