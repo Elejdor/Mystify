@@ -9,7 +9,9 @@ public class Treead : MonoBehaviour, IDamageable<float>
     [SerializeField]
     Transform _player;
     [SerializeField]
-    SpriteRenderer _renderer;   
+    SpriteRenderer _renderer;
+    [SerializeField]
+    private GameObject _castPoint;
     PlayerStats _playerStat;
 
     private int _hpMax;
@@ -37,6 +39,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
         _attackReady = true;
         _isBurning = false;
         _playerStat = _player.GetComponent<PlayerStats>();
+        _fire = GetComponent<CastFireball>();
     }
 
     private void Update()
@@ -51,6 +54,8 @@ public class Treead : MonoBehaviour, IDamageable<float>
         {
             attack();
         }
+        aim();                                                                         
+            throwFireball();
     }
 
     IEnumerator AttackCooldown()
@@ -117,12 +122,12 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void aim()
     {
-        _dir = _player.position - _tree.transform.position;
+        _dir = new Vector2(_player.position.x - _tree.transform.position.x, _player.position.y - _tree.transform.position.y - 3f);
         _dir.Normalize();
-        if(_player.position.x > _tree.transform.position.x)
-            _renderer.flipX = true;
-        else
+        //if(_player.position.x > _tree.transform.position.x)
             _renderer.flipX = false;
+        //else
+            //_renderer.flipX = false;
     }
 
     public void throwFireball()
