@@ -33,7 +33,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
     {                            
         _hpMax = 2000;
         _hp = _hpMax;
-        _velocity = 8f;
+        _velocity = 8.5f;
         _burnTime = 4f;
         _attackRange = 10f;
         _attackReady = true;
