@@ -13,6 +13,8 @@ public class Treead : MonoBehaviour, IDamageable<float>
     [SerializeField]
     private GameObject _castPoint;
     PlayerStats _playerStat;
+    [SerializeField]
+    ParticleSystem _boomParticle;
 
     private int _hpMax;
     private float _hp;
@@ -149,6 +151,9 @@ public class Treead : MonoBehaviour, IDamageable<float>
     public void death()
     {                    
         Destroy(_tree);
+        _boomParticle.Play();
+        _boomParticle.transform.parent = null;
+        Destroy(_boomParticle, 3.0f);
     }
 
     public void Damage(float damage)

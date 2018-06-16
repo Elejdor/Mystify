@@ -33220,7 +33220,9 @@ MonoBehaviour:
   _tree: {fileID: 1919278283}
   _player: {fileID: 1180277439}
   _renderer: {fileID: 1646733914}
-  _castPoint: {fileID: 0}
+  _castPoint: {fileID: 706906027}
+  _boomParticle: {fileID: 198495228905731012, guid: 22b8347367e660440aee9840b2751a49,
+    type: 2}
   _burnTime: 0
   _isBurning: 0
   _attackReady: 0
