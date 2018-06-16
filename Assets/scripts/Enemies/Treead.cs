@@ -21,10 +21,11 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public float _burnTime;
     public bool _isBurning;
-    public bool _attackReady;  
+    public bool _attackReady;
 
-   
-
+    private Vector2 _dir;
+    private CastFireball _fire;
+    private bool _canCast = true;
 
     void Start()
     {                            
@@ -32,7 +33,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
         _hp = _hpMax;
         _velocity = 8f;
         _burnTime = 4f;
-        _attackRange = 15f;
+        _attackRange = 10f;
         _attackReady = true;
         _isBurning = false;
         _playerStat = _player.GetComponent<PlayerStats>();
@@ -74,6 +75,15 @@ public class Treead : MonoBehaviour, IDamageable<float>
         }                   
     }
 
+    IEnumerator FireballCooldown()
+    {
+        float castCooldown;   
+        castCooldown = 3f;    
+
+        yield return new WaitForSeconds(castCooldown);
+        _canCast = true;
+    }
+
     public void move()
     {
         if(_player.position.x > (_tree.transform.position.x + _attackRange - 1) )
@@ -103,6 +113,27 @@ public class Treead : MonoBehaviour, IDamageable<float>
             return true;
         else
             return false;
+    }
+
+    public void aim()
+    {
+        _dir = _player.position - _tree.transform.position;
+        _dir.Normalize();
+        if(_player.position.x > _tree.transform.position.x)
+            _renderer.flipX = true;
+        else
+            _renderer.flipX = false;
+    }
+
+    public void throwFireball()
+    {
+        if(_canCast)
+        {
+            _fire.Cast(_dir);
+
+            _canCast = false;
+            StartCoroutine(FireballCooldown());
+        }
     }
 
     public void afterBurn()
