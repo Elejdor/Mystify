@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 61863598984490628}
   - component: {fileID: 114223583105643068}
   - component: {fileID: 114442156557261110}
-  - component: {fileID: 50406988689392782}
   m_Layer: 13
   m_Name: Golire
   m_TagString: Untagged
@@ -162,26 +161,6 @@ Transform:
   m_Father: {fileID: 4235669165064818}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50406988689392782
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1406026471903610}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &61863598984490628
 BoxCollider2D:
   m_ObjectHideFlags: 1
