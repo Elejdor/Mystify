@@ -6,8 +6,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     GameObject _tree;
-    [SerializeField]
-    Transform _player;
+    
     [SerializeField]
     SpriteRenderer _renderer;
     [SerializeField]
@@ -15,6 +14,8 @@ public class Treead : MonoBehaviour, IDamageable<float>
     PlayerStats _playerStat;
     [SerializeField]
     ParticleSystem _boomParticle;
+
+    GameObject _player;
 
     private int _hpMax;
     private float _hp;
@@ -40,13 +41,14 @@ public class Treead : MonoBehaviour, IDamageable<float>
         _attackRange = 10f;
         _attackReady = true;
         _isBurning = false;
+        _player = GameObject.Find("Player");
         _playerStat = _player.GetComponent<PlayerStats>();
         _fire = GetComponent<CastFireball>();
     }
 
     private void Update()
     {   
-        _distance = Mathf.Abs(_player.position.x - _tree.transform.position.x);
+        _distance = Mathf.Abs(_player.transform.position.x - _tree.transform.position.x);
 
         if( (_distance < 100f) || (_hp != _hpMax) )
         {                                   
@@ -93,12 +95,12 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void move()
     {
-        if(_player.position.x > (_tree.transform.position.x + _attackRange - 1) )
+        if(_player.transform.position.x > (_tree.transform.position.x + _attackRange - 1) )
         {
             _tree.transform.Translate(Vector2.right * _velocity * Time.deltaTime);
             _renderer.flipX = false;
         }
-        else if(_player.position.x < (_tree.transform.position.x - _attackRange + 1) )
+        else if(_player.transform.position.x < (_tree.transform.position.x - _attackRange + 1) )
         {
             _tree.transform.Translate(Vector2.left * _velocity * Time.deltaTime);
             _renderer.flipX = true;
@@ -124,7 +126,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void aim()
     {
-        _dir = new Vector2(_player.position.x - _tree.transform.position.x, _player.position.y - _tree.transform.position.y - 3f);
+        _dir = new Vector2(_player.transform.position.x - _tree.transform.position.x, _player.transform.position.y - _tree.transform.position.y - 3f);
         _dir.Normalize();
         //if(_player.position.x > _tree.transform.position.x)
             _renderer.flipX = false;

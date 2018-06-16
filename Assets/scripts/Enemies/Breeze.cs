@@ -6,8 +6,8 @@ public class Breeze : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     GameObject _breeze;
-    [SerializeField]
-    Transform _player;
+
+    GameObject _player;
     [SerializeField]
     SpriteRenderer _renderer;
     [SerializeField]
@@ -23,6 +23,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
     {
         _speed = 1f;
         _breezePos = GetComponent<Rigidbody2D>();
+        _player = GameObject.Find("Player");
     }
 
     void Update()
@@ -32,7 +33,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
 
     public void fly()
     {
-        _dir = _player.position - _breeze.transform.position;
+        _dir = _player.transform.position - _breeze.transform.position;
         _breezePos.AddForce(_dir * _speed, ForceMode2D.Force);
         if (_breeze.transform.position.y < 8f)
         {
