@@ -8,8 +8,7 @@ public class Golire : MonoBehaviour, IDamageable<float>
     private GameObject _golire;
     [SerializeField]
     private SpriteRenderer _renderer;
-    [SerializeField]
-    private Transform _player;
+    private GameObject _player;
     [SerializeField]
     private GameObject _castPoint;
 
@@ -24,8 +23,9 @@ public class Golire : MonoBehaviour, IDamageable<float>
 	// Use this for initialization
 	void Start ()
     {
-        _fire = GetComponent<CastFireball>(); 
-	}
+        _fire = GetComponent<CastFireball>();
+        _player = GameObject.Find("Player");
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -48,9 +48,9 @@ public class Golire : MonoBehaviour, IDamageable<float>
 
     public void aim()
     {
-        _dir = _player.position - _golire.transform.position;
+        _dir = _player.transform.position - _golire.transform.position;
         _dir.Normalize();
-        if(_player.position.x > _golire.transform.position.x) 
+        if(_player.transform.position.x > _golire.transform.position.x) 
             _renderer.flipX = true;  
         else                                                                                                          
             _renderer.flipX = false;
