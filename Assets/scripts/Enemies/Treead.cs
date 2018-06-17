@@ -19,6 +19,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     private int _hpMax;
     private float _hp;
+    public float ratio;
 
     private float _velocity;
     private float _attackRange;
@@ -47,7 +48,8 @@ public class Treead : MonoBehaviour, IDamageable<float>
     }
 
     private void Update()
-    {   
+    {
+        ratio = _hp / _hpMax;
         _distance = Mathf.Abs(_player.transform.position.x - _tree.transform.position.x);
 
         if( (_distance < 100f) || (_hp != _hpMax) )
