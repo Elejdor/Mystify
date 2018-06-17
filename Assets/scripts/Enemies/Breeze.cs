@@ -21,6 +21,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
 
     void Start()
     {
+        _hp = 5F;
         _speed = 1f;
         _breezePos = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
@@ -63,7 +64,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
         if (collision.gameObject.layer == 9)
         {
             death();
-            player.Damage(20);
+            player.Damage(10);
             player._canRegen = false;
             Shake.canShake = true;
         }

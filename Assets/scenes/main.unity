@@ -5069,6 +5069,26 @@ Prefab:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1180277439}
+    - target: {fileID: 1325983261774688, guid: 3f8c2dcde8283d24a829325ecf8e896e, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410522197517404, guid: 3f8c2dcde8283d24a829325ecf8e896e, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473867620577590, guid: 3f8c2dcde8283d24a829325ecf8e896e, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045147652723834, guid: 3f8c2dcde8283d24a829325ecf8e896e, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317632065394232, guid: 3f8c2dcde8283d24a829325ecf8e896e, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f8c2dcde8283d24a829325ecf8e896e, type: 2}
   m_IsPrefabParent: 0
@@ -5299,7 +5319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324989466}
   - component: {fileID: 324989467}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: lightEffect1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5656,7 +5676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &393755903
 Transform:
   m_ObjectHideFlags: 0
@@ -15940,7 +15960,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 706906028}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: castPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32768,7 +32788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646733913}
   - component: {fileID: 1646733914}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: TreeadRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32837,6 +32857,60 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1689668521
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1919278284}
+    m_Modifications:
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.8526602
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -21.941189
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839995109864788, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250419062182580, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 22b8347367e660440aee9840b2751a49, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1709269391
 GameObject:
   m_ObjectHideFlags: 0
@@ -32982,7 +33056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801759867}
   - component: {fileID: 1801759868}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: lightEffect1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33163,7 +33237,7 @@ GameObject:
   - component: {fileID: 1919278286}
   - component: {fileID: 1919278285}
   - component: {fileID: 1919278287}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Treead
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -28,10 +28,10 @@ public class Spawner : MonoBehaviour {
 	void Update () {
 		if(_player.position.x + 50 >= spawnBreeze.position.x)
         {
-            randBreeze = Random.Range(1, 4);
+            randBreeze = Random.Range(1, 2);
             for (int i = 0; i <= randBreeze; i++)
             {
-                Instantiate(_breeze, spawnBreeze.position, Quaternion.identity);
+                //Instantiate(_breeze, spawnBreeze.position, Quaternion.identity);
                 spawnBreeze.position = new Vector2(spawnBreeze.position.x, spawnBreeze.position.y + Random.Range(-3, 3));
             }
             spawnBreeze.position = new Vector2(spawnBreeze.position.x, spawnerY);

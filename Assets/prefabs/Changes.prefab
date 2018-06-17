@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castPoint: {fileID: 1273354441450074}
-  fireball: {fileID: 1140968241707498, guid: 9e5b580ee19bfc24ab0f71bf1b70c04a, type: 2}
+  fireball: {fileID: 1735722164239376, guid: c3296e88273a3d449a39ed66a8f79780, type: 2}
 --- !u!114 &114170223942781880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,7 +212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _golire: {fileID: 1378753675124274}
   _renderer: {fileID: 212442417980161974}
-  _player: {fileID: 0}
   _castPoint: {fileID: 1273354441450074}
   extinguished: 0
 --- !u!212 &212442417980161974
