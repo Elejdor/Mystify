@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 7502f7f1740afc94aa4929331530c577
+timeCreated: 1527234411
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Summers Victory Over Spring
+  fontNames:
+  - Summers Victory Over Spring
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 19b3eecb4799e564f868b17553cdc221, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
