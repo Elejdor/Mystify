@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour, IDamageable<float>
 {
@@ -36,7 +37,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
 
     public void death()
     {
-        Time.timeScale = 0f;
+        SceneManager.LoadScene("EndScene");
     }
 
     public void Damage(float damage)
@@ -45,7 +46,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
             _particles[0].Play();
         else if(damage < 0)
             _particles[1].Emit(2);
-        //Debug.Log("player HP: " + _hp);
+        Debug.Log("player HP: " + _hp);
         _hp -= damage;
         if(_hp <= 0)
             death();

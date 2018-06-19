@@ -15,7 +15,7 @@ public class Golire : MonoBehaviour, IDamageable<float>
     private Vector2 _dir;
     private CastFireball _fire;
                          
-    private float _hp = 200;
+    private float _hp = 50;
     private bool _canCast = true;
 
     public bool extinguished = false;  

@@ -20,11 +20,11 @@ public class WindStats : MonoBehaviour
         _anger = collision.gameObject.GetComponent<Anger>();
         _breeze = collision.gameObject.GetComponent<Breeze>();
 
-        if (collision.gameObject.layer == 13)
+        if (collision.gameObject.layer == 13 || collision.gameObject.layer == 14)
         {   
             if(collision.gameObject.name == "Treead")
             {
-                Debug.Log("RASENGAN!");
+                _tree.transform.Translate( new Vector2(-2, 0));
                 _tree._burnTime = 0f;       
             }  
             if(collision.gameObject.name == "Golire")

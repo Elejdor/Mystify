@@ -5,14 +5,21 @@ using UnityEngine;
 public class Treead : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
-    private GameObject _tree;
-    GameObject _player;
+    GameObject _tree;
+    
     [SerializeField]
-    SpriteRenderer _renderer;   
+    SpriteRenderer _renderer;
+    [SerializeField]
+    private GameObject _castPoint;
     PlayerStats _playerStat;
+    [SerializeField]
+    ParticleSystem _boomParticle;
 
-    private int _hpMax;
-    private float _hp;
+    GameObject _player;
+
+    public int _hpMax;
+    public float _hp;
+    public float ratio;
 
     private float _velocity;
     private float _attackRange;
@@ -20,29 +27,32 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public float _burnTime;
     public bool _isBurning;
-    public bool _attackReady;  
+    public bool _attackReady;
 
-   
-
+    private Vector2 _dir;
+    private CastFireball _fire;
+    private bool _canCast = true;
 
     void Start()
     {                            
-        _hpMax = 250;
+        _hpMax = 2000;
         _hp = _hpMax;
-        _velocity = 8f;
+        _velocity = 8.5f;
         _burnTime = 4f;
-        _attackRange = 3f;
+        _attackRange = 10f;
         _attackReady = true;
         _isBurning = false;
         _player = GameObject.Find("Player");
         _playerStat = _player.GetComponent<PlayerStats>();
+        _fire = GetComponent<CastFireball>();
     }
 
     private void Update()
-    {   
+    {
+        ratio = _hp / _hpMax;
         _distance = Mathf.Abs(_player.transform.position.x - _tree.transform.position.x);
 
-        if( (_distance < 10f) || (_hp != _hpMax) )
+        if( (_distance < 100f) || (_hp != _hpMax) )
         {                                   
             move();
         }
@@ -50,6 +60,8 @@ public class Treead : MonoBehaviour, IDamageable<float>
         {
             attack();
         }
+        aim();                                                                         
+            throwFireball();
     }
 
     IEnumerator AttackCooldown()
@@ -72,6 +84,15 @@ public class Treead : MonoBehaviour, IDamageable<float>
             yield return new WaitForSeconds(1);
             _burnTime -= 1;
         }                   
+    }
+
+    IEnumerator FireballCooldown()
+    {
+        float castCooldown;   
+        castCooldown = 3f;    
+
+        yield return new WaitForSeconds(castCooldown);
+        _canCast = true;
     }
 
     public void move()
@@ -105,6 +126,27 @@ public class Treead : MonoBehaviour, IDamageable<float>
             return false;
     }
 
+    public void aim()
+    {
+        _dir = new Vector2(_player.transform.position.x - _tree.transform.position.x, _player.transform.position.y - _tree.transform.position.y - 3f);
+        _dir.Normalize();
+        //if(_player.position.x > _tree.transform.position.x)
+            _renderer.flipX = false;
+        //else
+            //_renderer.flipX = false;
+    }
+
+    public void throwFireball()
+    {
+        if(_canCast)
+        {
+            _fire.Cast(_dir);
+
+            _canCast = false;
+            StartCoroutine(FireballCooldown());
+        }
+    }
+
     public void afterBurn()
     { 
         StartCoroutine( BurnTime() );     
@@ -113,6 +155,9 @@ public class Treead : MonoBehaviour, IDamageable<float>
     public void death()
     {                    
         Destroy(_tree);
+        _boomParticle.Play();
+        _boomParticle.transform.parent = null;
+        Destroy(_boomParticle, 3.0f);
     }
 
     public void Damage(float damage)

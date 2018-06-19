@@ -7,6 +7,7 @@ public class FireballStats : MonoBehaviour
     Treead _tree;
     Golire _golire;
     Anger _anger;
+    [SerializeField]
     PlayerStats _player;
     Breeze _breeze;
     [SerializeField]
@@ -27,7 +28,7 @@ public class FireballStats : MonoBehaviour
         _shaker = collision.gameObject.GetComponent<Shake>();
 
         
-        if(collision.gameObject.layer == 13)
+        if(collision.gameObject.layer == 13 || collision.gameObject.layer == 14)
         {
             if(collision.gameObject.name == "Treead")
             {
@@ -61,6 +62,7 @@ public class FireballStats : MonoBehaviour
             _player.Damage(50);                          
             _player._canRegen = false;
             //_anger._canRegen = false; 
+            Debug.Log("I hit him!");
             Shake.canShake = true;
         }
         Destroy(this.gameObject);
