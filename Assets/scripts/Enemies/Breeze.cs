@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Breeze : MonoBehaviour, IDamageable<float>
-{
+{                                
+    [SerializeField]
+    Rigidbody2D _breezePos;
+
     [SerializeField]
     GameObject _breeze;
 
     GameObject _player;
-    [SerializeField]
-    SpriteRenderer _renderer;
-    [SerializeField]
-    Rigidbody2D _breezePos;
-
     PlayerStats player;
+    Vector2 _dir;
 
     private float _hp;
     private float _speed;
-    Vector2 _dir;
 
     void Start()
     {
-        _hp = 5F;
+        _hp = 5f;
         _speed = 1f;
         _breezePos = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
@@ -34,15 +32,16 @@ public class Breeze : MonoBehaviour, IDamageable<float>
 
     public void fly()
     {
+        Vector3 dirBreeze = transform.position - _player.transform.position;
+        float angle = Mathf.Atan2(dirBreeze.y, dirBreeze.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         _dir = _player.transform.position - _breeze.transform.position;
         _breezePos.AddForce(_dir * _speed, ForceMode2D.Force);
-        if (_breeze.transform.position.y < 8f)
-        {
-            _breezePos.AddForce(Vector2.up * (1 / (_breeze.transform.position.y - 8)), ForceMode2D.Force);
-        }
+        if (_breeze.transform.position.y < 8f)                                                       
+            _breezePos.AddForce(Vector2.up * 2f, ForceMode2D.Force);
     }
-
-
+                               
     public void death()
     {
         Destroy(_breeze);
@@ -51,7 +50,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
 
     public void Damage(float damage)
     {
-        Debug.Log("HP: " + _hp);
+        Debug.Log("breezeHP: " + _hp);
         _hp -= damage;
         if (_hp <= 0)
             death();

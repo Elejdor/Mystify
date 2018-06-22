@@ -6196,6 +6196,8 @@ MonoBehaviour:
   InstFogg: {fileID: 232722279}
   Ground: {fileID: 1974662250244550, guid: 95a01933cb98dfd488e5ed67d05b8726, type: 2}
   Fogg: {fileID: 1609911584}
+  _golire: {fileID: 0}
+  _breeze: {fileID: 0}
 --- !u!4 &468897866 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4090158525767066, guid: 6534bbbef82a45742aa5f85a4401eb2f,
@@ -6377,7 +6379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -381.09885, y: 209.92102}
+  m_AnchoredPosition: {x: -381.09888, y: 209.92102}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &563441303

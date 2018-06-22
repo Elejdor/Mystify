@@ -1895,6 +1895,8 @@ MonoBehaviour:
   InstFogg: {fileID: 0}
   Ground: {fileID: 1107572198408318, guid: 95a01933cb98dfd488e5ed67d05b8726, type: 2}
   Fogg: {fileID: 0}
+  _golire: {fileID: 0}
+  _breeze: {fileID: 0}
 --- !u!4 &468897866 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4090158525767066, guid: 6534bbbef82a45742aa5f85a4401eb2f,
@@ -5376,7 +5378,7 @@ Transform:
   - {fileID: 776437472}
   - {fileID: 1621696009}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1214457898
 MonoBehaviour:
@@ -5987,7 +5989,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e281758fbd3994dbf869175bd5536b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hp: 500
+  _maxHP: 500
   _canRegen: 1
+  _particles: []
 --- !u!61 &1461695407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7367,8 +7372,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tree: {fileID: 1919278283}
-  _player: {fileID: 1180277439}
   _renderer: {fileID: 1646733914}
+  _castPoint: {fileID: 0}
+  _boomParticle: {fileID: 0}
+  _hpMax: 0
+  _hp: 0
+  ratio: 0
   _burnTime: 0
   _isBurning: 0
   _attackReady: 0
@@ -8232,7 +8241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _breeze: {fileID: 2106653015}
-  _player: {fileID: 1180277439}
   _renderer: {fileID: 928952894}
   _breezePos: {fileID: 2106653017}
 --- !u!61 &2106653019

@@ -12,111 +12,111 @@ MonoBehaviour:
   m_Name: breeze_basic
   m_EditorClassIdentifier: 
   m_PoseEntries:
-  - path: breeze meshes/breeze_tail/hip
+  - path: BreezeRenderer/breeze_tail/hip
     localPosition: {x: -0.5087833, y: 0.017116934, z: 0}
     localRotation: {x: -0, y: -0, z: -0.99995697, w: 0.009281056}
     localScale: {x: 1.0000005, y: 1.0000005, z: 1}
-  - path: breeze meshes/breeze_tail/hip/spine1
+  - path: BreezeRenderer/breeze_tail/hip/spine1
     localPosition: {x: 0.4835613, y: -0.000006563959, z: 0}
     localRotation: {x: -0, y: -0, z: 0.027386002, w: -0.999625}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/spine1/spine2
+  - path: BreezeRenderer/breeze_tail/hip/spine1/spine2
     localPosition: {x: 0.41494793, y: 0.0000015113073, z: 0}
     localRotation: {x: 0, y: 0, z: -0.007214954, w: 0.999974}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/spine1/spine2/breeze head
+  - path: BreezeRenderer/breeze_tail/hip/spine1/spine2/breeze head
     localPosition: {x: 0.44738737, y: 6.151595e-10, z: 0}
     localRotation: {x: 0, y: 0, z: -0.026282458, w: -0.9996546}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1
+  - path: BreezeRenderer/breeze_tail/hip/tail1
     localPosition: {x: -0.08509019, y: -0.01192939, z: 0}
     localRotation: {x: -0, y: -0, z: 0.99996716, w: 0.008114872}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2
     localPosition: {x: 0.10000006, y: 0.0000000018626451, z: 0}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3
     localPosition: {x: 0.10000045, y: 0.000000011175871, z: 0}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4
     localPosition: {x: 0.1000007, y: -0.0000009536743, z: 0}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5
     localPosition: {x: 0.100000866, y: 0.000000009313226, z: 0}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6
     localPosition: {x: 0.10000067, y: -0.0000009629875, z: 0}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7
     localPosition: {x: 0.10000131, y: 0.000000011175871, z: 0}
     localRotation: {x: -0, y: -0, z: -0, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8
     localPosition: {x: 0.10000252, y: -0.0000016782433, z: 0}
     localRotation: {x: -0, y: -0, z: -0.012768162, w: 0.9999185}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9
     localPosition: {x: 0.100000985, y: -0.0000000095881205, z: 0}
     localRotation: {x: -0, y: -0, z: -0.000000003725289, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10
     localPosition: {x: 0.10000127, y: -0.0000009743075, z: 0}
     localRotation: {x: -0, y: -0, z: -0.000000003725289, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11
     localPosition: {x: 0.10000373, y: 0.00000011365527, z: 0}
     localRotation: {x: -0, y: -0, z: -0.000000003725289, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12
     localPosition: {x: 0.10000431, y: 0.00000011114705, z: 0}
     localRotation: {x: -0, y: -0, z: -0.000000003725289, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13
     localPosition: {x: 0.10000188, y: -0.0000000017120418, z: 0}
     localRotation: {x: -0, y: -0, z: -0.000000003725289, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14
     localPosition: {x: 0.10000246, y: -0.000000021445768, z: 0}
     localRotation: {x: -0, y: -0, z: -0.000000003725289, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15
     localPosition: {x: 0.10000307, y: 0.0000016653811, z: 0}
     localRotation: {x: -0, y: -0, z: 0.017223591, w: 0.9998517}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16
     localPosition: {x: 0.10000577, y: 0.000000009281848, z: 0}
     localRotation: {x: -0, y: -0, z: 0.0000000018626445, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17
     localPosition: {x: 0.10000644, y: -0.000000012046827, z: 0}
     localRotation: {x: -0, y: -0, z: 0.0000000018626445, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18
     localPosition: {x: 0.09999841, y: -0.00000024750824, z: 0}
     localRotation: {x: -0, y: -0, z: 0.0000000018626445, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19
     localPosition: {x: 0.10000194, y: -0.0000008799447, z: 0}
     localRotation: {x: -0, y: -0, z: 0.0000000018626445, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20
     localPosition: {x: 0.1000052, y: -0.0000012852698, z: 0}
     localRotation: {x: -0, y: -0, z: -0.009125631, w: 0.9999584}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20/tail21
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20/tail21
     localPosition: {x: 0.10000459, y: -0.000000106944384, z: 0}
     localRotation: {x: -0, y: -0, z: -0.0000000018626443, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20/tail21/tail22
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20/tail21/tail22
     localPosition: {x: 0.100001745, y: -0.000000083999666, z: 0}
     localRotation: {x: -0, y: -0, z: -0.0000000018626443, w: 1}
     localScale: {x: 1, y: 1, z: 1}
-  - path: breeze meshes/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20/tail21/tail22/tail23
+  - path: BreezeRenderer/breeze_tail/hip/tail1/tail2/tail3/tail4/tail5/tail6/tail7/tail8/tail9/tail10/tail11/tail12/tail13/tail14/tail15/tail16/tail17/tail18/tail19/tail20/tail21/tail22/tail23
     localPosition: {x: 0.10000778, y: 0.00000015174379, z: 0}
     localRotation: {x: -0, y: -0, z: 0.04407153, w: 0.9990284}
     localScale: {x: 1, y: 1, z: 1}
