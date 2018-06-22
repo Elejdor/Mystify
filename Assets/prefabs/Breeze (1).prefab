@@ -189,7 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _breeze: {fileID: 1277088066782116}
-  _player: {fileID: 0}
   _renderer: {fileID: 212919231199125820}
   _breezePos: {fileID: 50277301592299266}
 --- !u!212 &212653092107246320

@@ -11,6 +11,9 @@ public class CharacterMovement : MonoBehaviour
     Vector2 _dir;
 
     [SerializeField]
+    Transform _crossHair;       
+
+    [SerializeField]
     Animator _anim;
 
     [SerializeField]
@@ -21,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
     float _groundCheckDist;
     float _walkForce = 8.0f;
     float _jumpForce = 1200.0f;
+    float _flipValue = 1f;
 
     bool _jumpReady = true;
     bool _canJump = false;
@@ -29,7 +33,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();                 
         _groundCheckDist = _downRay.localPosition.magnitude;
     }
 
@@ -51,9 +55,18 @@ public class CharacterMovement : MonoBehaviour
 
     void Walk()
     {
-        if ( ( _dir.x < 0 && !_isLeft )
-            || ( _dir.x > 0 && _isLeft ) )
+        if( (this.transform.position.x > _crossHair.transform.position.x) && _isLeft)
+        {
             Flip();
+            _flipValue = 1f;
+        }
+        else if( (this.transform.position.x < _crossHair.transform.position.x) && !_isLeft)
+        {
+            Flip();
+            _flipValue = -1f;
+        }
+
+        _anim.SetFloat("dirParameter", _dir.x * _flipValue);           
 
         _rb.velocity = new Vector2( _dir.x * _walkForce, _rb.velocity.y );
     }
