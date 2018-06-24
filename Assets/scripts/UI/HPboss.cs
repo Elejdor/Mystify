@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class HPboss : MonoBehaviour
 {
     [SerializeField]
-    Image currentImage;
+        Image currentImage;
     [SerializeField]
-    Sprite[] images;
+        Sprite[] images;
     [SerializeField]
-    GameObject _treead;
+        GameObject _treead;
     Treead treead;
+
     public float magicalNumber;
 
     // Use this for initialization

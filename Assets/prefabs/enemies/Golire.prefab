@@ -1130,7 +1130,6 @@ MonoBehaviour:
   _golire: {fileID: 1889098724258064}
   _renderer: {fileID: 4938944640334106}
   _castPoint: {fileID: 1243117242440230}
-  _sprites: {fileID: 0}
   _anim: {fileID: 95201985280754164}
   _hp: 150
   extinguished: 0

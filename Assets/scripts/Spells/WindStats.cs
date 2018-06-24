@@ -23,8 +23,11 @@ public class WindStats : MonoBehaviour
         if (collision.gameObject.layer == 13 || collision.gameObject.layer == 14)
         {   
             if(collision.gameObject.name == "Treead" || collision.gameObject.name == "Treead(Clone)")
-            {
-                _tree.transform.Translate( new Vector2(-2, 0));
+            {     
+                if(this.transform.position.x > _tree.transform.position.x)
+                    _tree.transform.Translate( new Vector2(-2, 0));
+                if(this.transform.position.x < _tree.transform.position.x)
+                    _tree.transform.Translate(new Vector2(2, 0));
                 _tree._burnTime = 0f;       
             }  
             if(collision.gameObject.name == "Golire" || collision.gameObject.name == "Golire(Clone)")

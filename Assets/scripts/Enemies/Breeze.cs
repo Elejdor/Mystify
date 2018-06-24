@@ -5,10 +5,9 @@ using UnityEngine;
 public class Breeze : MonoBehaviour, IDamageable<float>
 {                                
     [SerializeField]
-    Rigidbody2D _breezePos;
-
+        Rigidbody2D _breezePos;       
     [SerializeField]
-    GameObject _breeze;
+        GameObject _breeze;
 
     GameObject _player;
     PlayerStats player;
@@ -20,7 +19,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
     void Start()
     {
         _hp = 5f;
-        _speed = 1f;
+        _speed = 1.5f;
         _breezePos = GetComponent<Rigidbody2D>();
         _player = GameObject.Find("Player");
     }
@@ -32,14 +31,13 @@ public class Breeze : MonoBehaviour, IDamageable<float>
 
     public void fly()
     {
+        // Rotating Breeze
         Vector3 dirBreeze = transform.position - _player.transform.position;
         float angle = Mathf.Atan2(dirBreeze.y, dirBreeze.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
+        // Moving Breeze
         _dir = _player.transform.position - _breeze.transform.position;
-        _breezePos.AddForce(_dir * _speed, ForceMode2D.Force);
-        if (_breeze.transform.position.y < 8f)                                                       
-            _breezePos.AddForce(Vector2.up * 2f, ForceMode2D.Force);
+        _breezePos.velocity = _dir * _speed;                           
     }
                                
     public void death()
@@ -63,7 +61,7 @@ public class Breeze : MonoBehaviour, IDamageable<float>
         if (collision.gameObject.layer == 9)
         {
             death();
-            player.Damage(10);
+            player.Damage(20);
             player._canRegen = false;
             Shake.canShake = true;
         }

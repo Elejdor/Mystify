@@ -1706,8 +1706,8 @@ MonoBehaviour:
   _anim: {fileID: 95529564963254702}
   _renderer: {fileID: 4804431740537232}
   _hpMax: 0
-  _hp: 0
   ratio: 0
+  _hp: 0
   _burnTime: 0
   _isBurning: 0
   _attackReady: 0

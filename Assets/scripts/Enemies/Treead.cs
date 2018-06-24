@@ -5,25 +5,22 @@ using UnityEngine;
 public class Treead : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
-    GameObject _tree;
+        GameObject _tree;
     [SerializeField]
-    Animator _anim;
-
+        Animator _anim;   
     [SerializeField]
-    Transform _renderer;    
+        Transform _renderer;    
     PlayerStats _playerStat;       
-
     GameObject _player;
-
-    public int _hpMax;
-    public float _hp;
-    public float ratio;
 
     private float _velocity;
     private float _attackRange;
     private float _distance;
     private float _movementDirection;
 
+    public int _hpMax;
+    public float ratio;            
+    public float _hp;
     public float _burnTime;
     public bool _isBurning;
     public bool _attackReady;
@@ -48,15 +45,14 @@ public class Treead : MonoBehaviour, IDamageable<float>
         ratio = _hp / _hpMax;
         _distance = Mathf.Abs(_player.transform.position.x - _tree.transform.position.x);
 
-        if( (_distance < 100f) || (_hp != _hpMax) )
+        if( (_distance < 20f) || (_hp != _hpMax) )
         {                                   
             move();
         }
         if( canAttack() )
         {
             attack();
-        }
-
+        }  
         if(_distance < 0 && !_isLeft)
         {
             Flip();

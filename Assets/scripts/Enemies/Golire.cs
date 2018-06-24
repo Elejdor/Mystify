@@ -5,25 +5,23 @@ using UnityEngine;
 public class Golire : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
-    private GameObject _golire;
+        GameObject _golire;
     [SerializeField]
-    private Transform _renderer;
-    private GameObject _player;
+        Transform _renderer;
     [SerializeField]
-    private GameObject _castPoint;
+        GameObject _castPoint;  
     [SerializeField]
-    private Mesh _sprites;
-    [SerializeField]
-    Animator _anim;
+        Animator _anim;
 
+    private GameObject _player;      
     private Vector2 _dir;
     private CastFireball _fire;
+    private bool _canCast = true;
+    private bool _isLeft = true;
                          
     public float _hp = 50;
-    private bool _canCast = true;
-
     public bool extinguished = false;
-    bool _isLeft = true;
+
 
     // Use this for initialization
     void Start ()
@@ -66,12 +64,13 @@ public class Golire : MonoBehaviour, IDamageable<float>
         if(_canCast)
         {
             _anim.SetBool("Attack", true);
-            _fire.Cast(_dir);
-
-            _canCast = false;
-            _anim.SetBool("Attack", false);
+            if(_anim.GetCurrentAnimatorStateInfo(0).IsName("gorille_attack"))
+                _anim.SetBool("Attack", false);
+            StartCoroutine(beforeAnim());      
+            
+            _canCast = false;                         
             StartCoroutine(FireballCooldown());
-        }
+        }                                 
     }   
 
     public void death()
@@ -87,14 +86,27 @@ public class Golire : MonoBehaviour, IDamageable<float>
             death();
     }
 
+    void Flip()
+    {
+        _isLeft = !_isLeft;
+        Vector3 scale = _renderer.localScale;
+        scale.x *= -1;
+        _renderer.localScale = scale;
+    }
+
+    IEnumerator beforeAnim()
+    {
+        yield return new WaitForSeconds(0.7f);
+        _fire.Cast(_dir);                     
+    }
+
     IEnumerator FireballCooldown()
     {
         float castCooldown;
         if(extinguished)
             castCooldown = 5f;
         else
-            castCooldown = 3f;
-
+            castCooldown = 3f;                    
         yield return new WaitForSeconds(castCooldown);
         _canCast = true;
     }
@@ -104,13 +116,4 @@ public class Golire : MonoBehaviour, IDamageable<float>
         yield return new WaitForSeconds(extTime);
         extinguished = false;
     }
-
-    void Flip()
-    {
-        _isLeft = !_isLeft;
-        Vector3 scale = _renderer.localScale;
-        scale.x *= -1;
-        _renderer.localScale = scale;
-    }
-
 }

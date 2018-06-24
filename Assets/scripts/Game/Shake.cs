@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shake : MonoBehaviour {
+public class Shake : MonoBehaviour
+{
     [SerializeField]
-        float shakeDuration;
+    float shakeDuration;
     [SerializeField]
-        float amount;
+    float amount;
     [SerializeField]
     Transform cam;
 
