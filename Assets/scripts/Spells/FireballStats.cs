@@ -30,18 +30,18 @@ public class FireballStats : MonoBehaviour
         
         if(collision.gameObject.layer == 13 || collision.gameObject.layer == 14)
         {
-            if(collision.gameObject.name == "Treead")
+            if(collision.gameObject.name == "Treead" || collision.gameObject.name == "Treead(Clone)")
             {
                 _tree.Damage(50);         
                 _tree._burnTime = 4f;
                 _tree.afterBurn();        
             }  
-            if(collision.gameObject.name == "Golire")
+            if(collision.gameObject.name == "Golire" || collision.gameObject.name == "Golire(Clone)")
             {
                 Debug.Log("Burn again!");
                 _golire.extinguished = false;
             }
-            if (collision.gameObject.name == "Breeze")
+            if (collision.gameObject.name == "Breeze" || collision.gameObject.name == "Breeze(Clone)")
             {
                 _breeze.Damage(50);
             }

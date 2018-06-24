@@ -7,21 +7,24 @@ public class Golire : MonoBehaviour, IDamageable<float>
     [SerializeField]
     private GameObject _golire;
     [SerializeField]
-    private SpriteRenderer _renderer;
+    private Transform _renderer;
     private GameObject _player;
     [SerializeField]
     private GameObject _castPoint;
+    [SerializeField]
+    private Mesh _sprites;
 
     private Vector2 _dir;
     private CastFireball _fire;
                          
-    private float _hp = 50;
+    public float _hp = 50;
     private bool _canCast = true;
 
-    public bool extinguished = false;  
-            
-	// Use this for initialization
-	void Start ()
+    public bool extinguished = false;
+    bool _isLeft = true;
+
+    // Use this for initialization
+    void Start ()
     {
         _fire = GetComponent<CastFireball>();
         _player = GameObject.Find("Player");
@@ -50,10 +53,10 @@ public class Golire : MonoBehaviour, IDamageable<float>
     {
         _dir = _player.transform.position - _golire.transform.position;
         _dir.Normalize();
-        if(_player.transform.position.x > _golire.transform.position.x) 
-            _renderer.flipX = true;  
-        else                                                                                                          
-            _renderer.flipX = false;
+        if( (_player.transform.position.x > _golire.transform.position.x) && _isLeft)
+            Flip();
+        else if((_player.transform.position.x <= _golire.transform.position.x) && !_isLeft)
+            Flip();
     }
 
     public void throwFireball()
@@ -96,6 +99,14 @@ public class Golire : MonoBehaviour, IDamageable<float>
     {                                                   
         yield return new WaitForSeconds(extTime);
         extinguished = false;
+    }
+
+    void Flip()
+    {
+        _isLeft = !_isLeft;
+        Vector3 scale = _renderer.localScale;
+        scale.x *= -1;
+        _renderer.localScale = scale;
     }
 
 }

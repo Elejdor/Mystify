@@ -22,17 +22,17 @@ public class WindStats : MonoBehaviour
 
         if (collision.gameObject.layer == 13 || collision.gameObject.layer == 14)
         {   
-            if(collision.gameObject.name == "Treead")
+            if(collision.gameObject.name == "Treead" || collision.gameObject.name == "Treead(Clone)")
             {
                 _tree.transform.Translate( new Vector2(-2, 0));
                 _tree._burnTime = 0f;       
             }  
-            if(collision.gameObject.name == "Golire")
+            if(collision.gameObject.name == "Golire" || collision.gameObject.name == "Golire(Clone)")
             {
                 Debug.Log("You'r not burning anymore!");
                 _golire.extinguished = true;                 
             }
-            if (collision.gameObject.name == "Breeze")
+            if (collision.gameObject.name == "Breeze" || collision.gameObject.name == "Breeze(Clone)")
             {
                 _breeze.Damage(30);
             }

@@ -6,14 +6,12 @@ public class Treead : MonoBehaviour, IDamageable<float>
 {
     [SerializeField]
     GameObject _tree;
-    
     [SerializeField]
-    SpriteRenderer _renderer;
+    Animator _anim;
+
     [SerializeField]
-    private GameObject _castPoint;
-    PlayerStats _playerStat;
-    [SerializeField]
-    ParticleSystem _boomParticle;
+    Transform _renderer;    
+    PlayerStats _playerStat;       
 
     GameObject _player;
 
@@ -24,14 +22,13 @@ public class Treead : MonoBehaviour, IDamageable<float>
     private float _velocity;
     private float _attackRange;
     private float _distance;
+    private float _movementDirection;
 
     public float _burnTime;
     public bool _isBurning;
     public bool _attackReady;
-
-    private Vector2 _dir;
-    private CastFireball _fire;
-    private bool _canCast = true;
+                                   
+    bool _isLeft = true;
 
     void Start()
     {                            
@@ -43,13 +40,13 @@ public class Treead : MonoBehaviour, IDamageable<float>
         _attackReady = true;
         _isBurning = false;
         _player = GameObject.Find("Player");
-        _playerStat = _player.GetComponent<PlayerStats>();
-        _fire = GetComponent<CastFireball>();
+        _playerStat = _player.GetComponent<PlayerStats>(); 
     }
 
     private void Update()
     {
         ratio = _hp / _hpMax;
+        _anim.SetBool("Attack", canAttack());
         _distance = Mathf.Abs(_player.transform.position.x - _tree.transform.position.x);
 
         if( (_distance < 100f) || (_hp != _hpMax) )
@@ -60,8 +57,15 @@ public class Treead : MonoBehaviour, IDamageable<float>
         {
             attack();
         }
-        aim();                                                                         
-            throwFireball();
+
+        if(_distance < 0 && !_isLeft)
+        {
+            Flip();
+        }
+        else if(_distance > 0 && _isLeft)
+        {
+            Flip();
+        }
     }
 
     IEnumerator AttackCooldown()
@@ -85,29 +89,21 @@ public class Treead : MonoBehaviour, IDamageable<float>
             _burnTime -= 1;
         }                   
     }
-
-    IEnumerator FireballCooldown()
-    {
-        float castCooldown;   
-        castCooldown = 3f;    
-
-        yield return new WaitForSeconds(castCooldown);
-        _canCast = true;
-    }
+       
 
     public void move()
     {
         if(_player.transform.position.x > (_tree.transform.position.x + _attackRange - 1) )
         {
             _tree.transform.Translate(Vector2.right * _velocity * Time.deltaTime);
-            _renderer.flipX = false;
+            _movementDirection = 1f;
         }
         else if(_player.transform.position.x < (_tree.transform.position.x - _attackRange + 1) )
         {
             _tree.transform.Translate(Vector2.left * _velocity * Time.deltaTime);
-            _renderer.flipX = true;
-        }
-
+            _movementDirection = -1f;
+        }   
+        _anim.SetFloat("Speed", _movementDirection);
     }
 
     public void attack()
@@ -120,33 +116,15 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public bool canAttack()
     {
-        if ( (_distance < _attackRange) && _attackReady)
+        if((_distance < _attackRange) && _attackReady)
+        {
+            _movementDirection = 0f;
             return true;
+        }
         else
             return false;
     }
-
-    public void aim()
-    {
-        _dir = new Vector2(_player.transform.position.x - _tree.transform.position.x, _player.transform.position.y - _tree.transform.position.y - 3f);
-        _dir.Normalize();
-        //if(_player.position.x > _tree.transform.position.x)
-            _renderer.flipX = false;
-        //else
-            //_renderer.flipX = false;
-    }
-
-    public void throwFireball()
-    {
-        if(_canCast)
-        {
-            _fire.Cast(_dir);
-
-            _canCast = false;
-            StartCoroutine(FireballCooldown());
-        }
-    }
-
+             
     public void afterBurn()
     { 
         StartCoroutine( BurnTime() );     
@@ -154,10 +132,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void death()
     {                    
-        Destroy(_tree);
-        _boomParticle.Play();
-        _boomParticle.transform.parent = null;
-        Destroy(_boomParticle, 3.0f);
+        Destroy(_tree);               
     }
 
     public void Damage(float damage)
@@ -167,6 +142,14 @@ public class Treead : MonoBehaviour, IDamageable<float>
         if(_hp <= 0)
             death();
     }
-    
+
+    void Flip()
+    {
+        _isLeft = !_isLeft;
+        Vector3 scale = _renderer.localScale;
+        scale.x *= -1;
+        _renderer.localScale = scale;
+    }
+
 }
 
