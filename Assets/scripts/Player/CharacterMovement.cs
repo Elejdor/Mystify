@@ -20,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
     Transform _renderer;
 
     Anima2D.PoseManager _poseManager;
+    SoundManager _sound;
 
     float _groundCheckDist;
     float _walkForce = 8.0f;
@@ -54,7 +55,7 @@ public class CharacterMovement : MonoBehaviour
     }
 
     void Walk()
-    {
+    {            
         if( (this.transform.position.x > _crossHair.transform.position.x) && _isLeft)
         {
             Flip();
