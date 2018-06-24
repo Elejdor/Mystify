@@ -13,6 +13,8 @@ public class Golire : MonoBehaviour, IDamageable<float>
     private GameObject _castPoint;
     [SerializeField]
     private Mesh _sprites;
+    [SerializeField]
+    Animator _anim;
 
     private Vector2 _dir;
     private CastFireball _fire;
@@ -63,9 +65,11 @@ public class Golire : MonoBehaviour, IDamageable<float>
     {
         if(_canCast)
         {
+            _anim.SetBool("Attack", true);
             _fire.Cast(_dir);
 
             _canCast = false;
+            _anim.SetBool("Attack", false);
             StartCoroutine(FireballCooldown());
         }
     }   

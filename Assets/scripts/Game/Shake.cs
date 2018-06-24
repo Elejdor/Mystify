@@ -17,8 +17,7 @@ public class Shake : MonoBehaviour {
     Vector3 rand;
 
     void Update()
-    {
-        ShakeBegin(0.3f, 0.3f);
+    {                           
         if(canShake)
         {
             ShakeBegin(0.5f, 0.5f);

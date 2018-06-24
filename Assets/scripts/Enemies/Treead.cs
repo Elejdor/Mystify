@@ -32,11 +32,11 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     void Start()
     {                            
-        _hpMax = 2000;
+        _hpMax = 200;
         _hp = _hpMax;
         _velocity = 8.5f;
         _burnTime = 4f;
-        _attackRange = 10f;
+        _attackRange = 6f;
         _attackReady = true;
         _isBurning = false;
         _player = GameObject.Find("Player");
@@ -46,7 +46,6 @@ public class Treead : MonoBehaviour, IDamageable<float>
     private void Update()
     {
         ratio = _hp / _hpMax;
-        _anim.SetBool("Attack", canAttack());
         _distance = Mathf.Abs(_player.transform.position.x - _tree.transform.position.x);
 
         if( (_distance < 100f) || (_hp != _hpMax) )
@@ -93,16 +92,19 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void move()
     {
-        if(_player.transform.position.x > (_tree.transform.position.x + _attackRange - 1) )
+        if(_player.transform.position.x > (_tree.transform.position.x + _attackRange - 1))
         {
             _tree.transform.Translate(Vector2.right * _velocity * Time.deltaTime);
             _movementDirection = 1f;
         }
-        else if(_player.transform.position.x < (_tree.transform.position.x - _attackRange + 1) )
+        else if(_player.transform.position.x < (_tree.transform.position.x - _attackRange + 1))
         {
             _tree.transform.Translate(Vector2.left * _velocity * Time.deltaTime);
             _movementDirection = -1f;
-        }   
+        }
+        else
+            _movementDirection = 0f;
+
         _anim.SetFloat("Speed", _movementDirection);
     }
 
@@ -118,11 +120,14 @@ public class Treead : MonoBehaviour, IDamageable<float>
     {
         if((_distance < _attackRange) && _attackReady)
         {
-            _movementDirection = 0f;
+            _anim.SetBool("Attack", true);   
             return true;
         }
         else
+        {          
+            _anim.SetBool("Attack", false);
             return false;
+        }
     }
              
     public void afterBurn()
