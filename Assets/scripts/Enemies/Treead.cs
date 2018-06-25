@@ -9,7 +9,9 @@ public class Treead : MonoBehaviour, IDamageable<float>
     [SerializeField]
         Animator _anim;   
     [SerializeField]
-        Transform _renderer;    
+        Transform _renderer;
+    [SerializeField]
+        UIOptions UIManager;
     PlayerStats _playerStat;       
     GameObject _player;
 
@@ -133,12 +135,13 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void death()
     {                    
-        Destroy(_tree);               
+        Destroy(_tree); 
+        if(this.gameObject.name == "Treead")
+            StartCoroutine(UIManager.MonologueStart(TextStates.Epilogue));
     }
 
     public void Damage(float damage)
-    {
-        Debug.Log("treeadHP: " + this._hp);
+    {                                        
         this._hp -= damage;
         if(_hp <= 0)
             death();
