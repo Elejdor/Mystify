@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: lava_mouth
   m_EditorClassIdentifier: 
   m_ApiVersion: 4
-  m_Sprite: {fileID: 21300000, guid: 7218c3deb4c246d489f3e44c06bc6841, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af2db96650b14b1478ac8c935e274476, type: 3}
   m_SharedMesh: {fileID: 43045639865662190}
   pivotPoint: {x: 0, y: 0}
   texVertices: []

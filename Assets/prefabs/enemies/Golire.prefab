@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 4938944640334106}
   - component: {fileID: 95201985280754164}
   - component: {fileID: 114927381208907490}
+  - component: {fileID: 114844998097484396}
   m_Layer: 13
   m_Name: lava renderer
   m_TagString: Untagged
@@ -823,7 +824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteMesh: {fileID: 11400000, guid: 94364ccb3bf38da418d1df295a6fecd4, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.52949136, b: 0, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 137890923
@@ -895,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteMesh: {fileID: 11400000, guid: 1e545ed6d78096047a1a292b112cd33d, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.52949136, b: 0, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 137890923
@@ -1001,7 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteMesh: {fileID: 11400000, guid: ba58f87a9b16ff448a0d281a7a331dc7, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.52949136, b: 0, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 137890923
@@ -1071,6 +1072,24 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 0}
+--- !u!114 &114844998097484396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1966999997134006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8959f0974de49314ca3f104c96bbfea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 114130432353924862}
+  - {fileID: 114535652177546100}
+  - {fileID: 114974860773398646}
+  - {fileID: 114273057226208606}
+  _coldColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+  _hotColor: {r: 1, g: 0.5294118, b: 0, a: 1}
 --- !u!114 &114871525980951964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1177,7 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpriteMesh: {fileID: 11400000, guid: 1255babf31376fc4f8d1e3534b304d80, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.52949136, b: 0, a: 1}
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: 137890923

@@ -19,20 +19,27 @@ public class Golire : MonoBehaviour, IDamageable<float>
     private bool _canCast = true;
     private bool _isLeft = true;
                          
+    float _maxHp = 50;
     public float _hp = 50;
     public bool extinguished = false;
+    bool _dying = false;
 
+    LavaRenderer _rend;
 
     // Use this for initialization
     void Start ()
     {
         _fire = GetComponent<CastFireball>();
         _player = GameObject.Find("Player");
+        _rend = GetComponentInChildren<LavaRenderer>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if ( _dying )
+            return;
+
         aim();
         if( Mathf.Abs(_player.transform.position.x - _golire.transform.position.x) < 30 )
             throwFireball();
@@ -75,14 +82,47 @@ public class Golire : MonoBehaviour, IDamageable<float>
 
     public void death()
     {
-        Destroy(_golire);
+        if ( _dying )
+            return;
+
+        _dying = true;
+        StartCoroutine( DeathSequence() );
+    }
+
+    IEnumerator DeathSequence()
+    {
+        float duration = 0.3f;
+        float time = duration;
+
+        // fade out
+        while ( time > 0.0f )
+        {
+            time -= Time.deltaTime;
+            _rend.SetTransparency( time / duration );
+            yield return null;
+        }
+        Destroy( _golire );
+    }
+
+    void SetHp(float val)
+    {
+        _hp = val;
+        if ( _hp > _maxHp )
+            _hp = _maxHp;
+        else if ( _hp < 0 )
+            death();
+
+        _rend.SetHot( _hp / _maxHp );
+    }
+
+    public void Heal( float amount )
+    {
+        SetHp( _hp + amount );
     }
 
     public void Damage(float damage)
     {
-        _hp -= damage;
-        if(_hp <= 0)
-            death();
+        SetHp( _hp - damage );
     }
 
     void Flip()

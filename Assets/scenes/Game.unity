@@ -8143,12 +8143,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 137034601608424528, guid: 1adb7e0e1205e1c46b45aa2710ad02a9,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 137522569052586858, guid: 1adb7e0e1205e1c46b45aa2710ad02a9,
+    - target: {fileID: 137933956083304202, guid: 1adb7e0e1205e1c46b45aa2710ad02a9,
         type: 2}
       propertyPath: m_Mesh
       value: 
@@ -8158,7 +8153,12 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 137933956083304202, guid: 1adb7e0e1205e1c46b45aa2710ad02a9,
+    - target: {fileID: 137522569052586858, guid: 1adb7e0e1205e1c46b45aa2710ad02a9,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137034601608424528, guid: 1adb7e0e1205e1c46b45aa2710ad02a9,
         type: 2}
       propertyPath: m_Mesh
       value: 

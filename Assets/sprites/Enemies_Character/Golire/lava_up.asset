@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: lava_up
   m_EditorClassIdentifier: 
   m_ApiVersion: 4
-  m_Sprite: {fileID: 21300000, guid: c6341d89bbc0fe9499b964e756f89c00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: be11dd25d02567c438af0343c5a04c73, type: 3}
   m_SharedMesh: {fileID: 43114556727231576}
   pivotPoint: {x: 0, y: 0}
   texVertices: []
