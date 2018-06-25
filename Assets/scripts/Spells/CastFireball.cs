@@ -19,5 +19,6 @@ public class CastFireball : MonoBehaviour, IProjectileCaster
         go.transform.right = dir.normalized;
         go.GetComponent<Rigidbody2D>().velocity = dir * velocity;
         Destroy( go, 3f );
+        SoundManager.Play(SfxType.Fireball);
     }
 }
