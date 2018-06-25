@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/EndScene.unity
     guid: c7d20610b43b35a459c15a492e294d9d
+  - enabled: 1
+    path: Assets/scenes/Menu.unity
+    guid: 552452fd07943134eab923895df85bad
+  - enabled: 1
+    path: Assets/scenes/Anger.unity
+    guid: e7dc64c6d62a18441896b3fcd9632d19
   m_configObjects: {}

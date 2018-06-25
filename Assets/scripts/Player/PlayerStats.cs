@@ -9,12 +9,15 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
     public float _maxHP = 500;
     public bool _canRegen = true;
     [SerializeField]
-    ParticleSystem [] _particles;
-
+        ParticleSystem [] _particles;
+    
+    GameObject UImanager;
+                 
     void Start()
     {
         _maxHP = 500;
         _hp = _maxHP;
+        UImanager = GameObject.Find("TextManager");
     }
 
 	void Update ()
@@ -37,7 +40,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
 
     public void death()
     {
-        SceneManager.LoadScene("EndScene");
+        UImanager.GetComponent<UIOptions>().ChangeScene("EndScene");
     }
 
     public void Damage(float damage)
@@ -45,8 +48,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
         if(damage > 0)
             _particles[0].Play();
         else if(damage < 0)
-            _particles[1].Emit(2);
-        Debug.Log("player HP: " + _hp);
+            _particles[1].Emit(2);       
         _hp -= damage;
         if(_hp <= 0)
             death();
