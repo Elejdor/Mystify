@@ -1689,6 +1689,51 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 82333297720809466, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82290479302517886, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82911532742871500, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82695662917690328, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82709625741497454, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82162559075654550, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82834003850856744, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82836636087935838, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82836636087935838, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34a9d2ae1d280d744a2c256c13a350a0, type: 2}
   m_IsPrefabParent: 0

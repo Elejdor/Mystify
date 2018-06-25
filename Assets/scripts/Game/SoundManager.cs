@@ -8,20 +8,17 @@ public class SoundManager : MonoBehaviour
     static SoundManager m_instance = null;
 
     AudioSource[] m_sfxSources;
-    AudioSource[] m_ambientSources;
 
     [SerializeField]
     GameObject m_sfxRoot;
 
     [SerializeField]
-    GameObject m_ambientRoot;
+    AudioSource m_ambientSource;
 
     [SerializeField]
     List< SoundEntry > m_soundEffects;
 
     Queue< AudioClip > m_clipsQueue = new Queue< AudioClip >( 5 );
-
-    bool m_processinQueue = false;
 
     [Serializable]
     class SoundEntry
@@ -47,19 +44,23 @@ public class SoundManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_instance = this;
-        m_sfxSources = m_sfxRoot.GetComponentsInChildren<AudioSource>();
-        m_ambientSources = m_ambientRoot.GetComponentsInChildren<AudioSource>();
-        DontDestroyOnLoad( gameObject );
+        if (m_instance)
+            DestroyImmediate(gameObject);
+        else
+        {
+            m_instance = this;
+            m_sfxSources = m_sfxRoot.GetComponentsInChildren<AudioSource>();
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
-    public static void Play( SfxType sfx, AudioSource audio = null )
+    public static void Play(SfxType sfx, bool randomPitch = false)
     {
         foreach ( SoundEntry entry in m_instance.m_soundEffects )
         {
             if ( entry.GetEffectType() == sfx )
             {
-                InternalPlay( entry.GetRandomClip(), audio );
+                m_instance.InternalPlay( entry.GetRandomClip(), randomPitch);
                 return;
             }
         }
@@ -67,27 +68,28 @@ public class SoundManager : MonoBehaviour
         Debug.LogWarning( "No such sfx." );
     }
 
-    static void InternalPlay( AudioClip clip, AudioSource audio )
+    AudioSource FindSfxSource()
     {
-        if ( audio )
+        foreach ( AudioSource src in m_sfxSources )
         {
-            audio.PlayOneShot( clip );
+            if ( src.isPlaying == false )
+            {
+                src.pitch = 1.0f;
+                return src;
+            }
         }
-        else
-        {
-            m_instance.PlayAsStaticSource( clip );
-        }
+
+        return null;
     }
 
-    void PlayAsStaticSource( AudioClip clip )
+    void InternalPlay(AudioClip clip, bool randomPitch)
     {
-        foreach ( AudioSource audio in m_sfxSources )
+        AudioSource audio = FindSfxSource();
+        if (audio)
         {
-            if ( !audio.isPlaying )
-            {
-                audio.PlayOneShot( clip );
-                break;
-            }
+            if (randomPitch)
+                audio.pitch = UnityEngine.Random.Range( 0.8f, 1.2f );
+            audio.PlayOneShot(clip);
         }
     }
 }
