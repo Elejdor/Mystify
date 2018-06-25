@@ -80,7 +80,6 @@ public class Golire : MonoBehaviour, IDamageable<float>
 
     public void Damage(float damage)
     {
-        Debug.Log("golireHP: " + _hp);
         _hp -= damage;
         if(_hp <= 0)
             death();
