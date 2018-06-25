@@ -40,7 +40,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
 
     public void death()
     {
-        UImanager.GetComponent<UIOptions>().ChangeScene("EndScene");
+        SceneManager.LoadScene( "EndScene" );
     }
 
     public void Damage(float damage)
