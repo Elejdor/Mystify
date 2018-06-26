@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4234200691523104}
   - component: {fileID: 114768477335898516}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4079324299929614}
   - component: {fileID: 212624926842098250}
   - component: {fileID: 61158765981795848}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

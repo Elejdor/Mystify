@@ -23,18 +23,15 @@ public class EnviroGenerator : MonoBehaviour
     [SerializeField] GameObject Ground;
     [SerializeField] GameObject Fogg;
     [SerializeField] GameObject _golire;         
-    [SerializeField] GameObject _breeze;
-    [SerializeField] GameObject _Portal;
+    [SerializeField] GameObject _breeze;  
 
     bool flagDown = true;
     bool flagMid = true;
     bool flagUp = true;
     bool flagGround = true;
     bool flagStal = true;
-    bool flagFogg = true;
-    bool portalSpawned = false;
-    GameObject go;
-    GameObject _player;
+    bool flagFogg = true;         
+    GameObject go;      
     float randPos;
     int randPref;
     int randFlipX = 1;
@@ -47,9 +44,7 @@ public class EnviroGenerator : MonoBehaviour
     GameObject layer_2;
     GameObject layer_3;
     void Start()
-    {
-        portalSpawned = false;
-        _player = GameObject.Find("Player");
+    {                                       
         layer_0 = GameObject.Find("layer_0");
         layer_1 = GameObject.Find("layer_1");
         layer_2 = GameObject.Find("layer_2");
@@ -100,11 +95,6 @@ public class EnviroGenerator : MonoBehaviour
         go.transform.Rotate(Vector3.forward * randRot);
         sort(go);
         InstPoint.transform.position = new Vector3(InstPoint.transform.position.x + randPos, InstPoint.transform.position.y, InstPoint.transform.position.z);
-        if(_player.transform.position.x >= 100f && !portalSpawned)
-        {
-            Instantiate(_Portal, new Vector3(_player.transform.position.x + 20, _player.transform.position.y), Quaternion.identity);
-            portalSpawned = true;
-        }
         flag = false;
     }
 

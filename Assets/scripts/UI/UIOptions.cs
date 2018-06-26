@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class UIOptions : MonoBehaviour
 {
+    static UIOptions m_instance = null;
 
     [SerializeField]
-        CanvasGroup _fader;
-    //[SerializeField]
-    //AudioSource _song;
+        CanvasGroup _fader;  
     [SerializeField]
     TextManager textManager;
 
@@ -31,45 +30,50 @@ public class UIOptions : MonoBehaviour
     {
         monologeEnd = false;
         _fader.alpha = 1f;
+        if(m_instance)
+            DestroyImmediate(gameObject);
+        else
+        {
+            m_instance = this;                                                  
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void Update()
     {
-        StartCoroutine(fadeOut(10));   
-        
+        StartCoroutine(fadeOut(10)); 
     }
 
-    public void ChangeScene(string sceneName)
-    {
-        StartCoroutine(fadeOut(5));
+    public static void ChangeScene(string sceneName)
+    {    
+        m_instance.StartCoroutine(m_instance.fadeOut(5));
         SceneManager.LoadScene(sceneName);
-        StartCoroutine(fadeIn(5));       
+        m_instance.StartCoroutine(m_instance.fadeIn(5));       
     }
 
-    public IEnumerator MonologueStart(TextStates textStates)
-    {
-        while(inCoroutine)
-            yield return new WaitForSeconds(0.1f);
-        DialogLayout(); 
+    public IEnumerator MonologueStart(TextStates textStates, float lenght = 15f)
+    {                                             
         textManager.currentState = textStates;
-        yield return new WaitForSeconds(15f);
-        Debug.Log("MONOLOGUE!");
-        monologeEnd = true;
-        textManager.currentState = TextStates.NoText;
+        
+        yield return new WaitForSeconds(lenght);
+        if(lenght <= 0.1)
+        {
+            Debug.Log("MONOLOGUE!");
+            monologeEnd = true;
+            textManager.currentState = TextStates.NoText; 
+        }                                 
     }
 
     public void DialogLayout()
-    {
-        /*inCoroutine = true;
+    {         
         StartCoroutine(fadeIn(3f, 0.8f));    
         Time.timeScale = 0f;
-        if(monologeEnd)
+        if(!monologeEnd)
         {
-            monologeEnd = false;
+            StartCoroutine(MonologueStart(TextStates.Epilogue));
             Time.timeScale = 1f;
             StartCoroutine(fadeOut(3f));
         }
-        inCoroutine = false;*/
     }
 
     public void QuitGame()

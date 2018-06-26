@@ -11,7 +11,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
     [SerializeField]
         Transform _renderer;
     [SerializeField]
-        UIOptions UIManager;
+        GameObject UIManager;
     PlayerStats _playerStat;       
     GameObject _player;
 
@@ -55,11 +55,11 @@ public class Treead : MonoBehaviour, IDamageable<float>
         {
             attack();
         }  
-        if(_distance < 0 && !_isLeft)
+        if(_player.transform.position.x - _tree.transform.position.x < 0 && !_isLeft)
         {
             Flip();
         }
-        else if(_distance > 0 && _isLeft)
+        else if(_player.transform.position.x - _tree.transform.position.x > 0 && _isLeft)
         {
             Flip();
         }
@@ -98,7 +98,7 @@ public class Treead : MonoBehaviour, IDamageable<float>
         else if(_player.transform.position.x < (_tree.transform.position.x - _attackRange + 1))
         {
             _tree.transform.Translate(Vector2.left * _velocity * Time.deltaTime);
-            _movementDirection = -1f;
+            _movementDirection = 1f;
         }
         else
             _movementDirection = 0f;
@@ -135,9 +135,12 @@ public class Treead : MonoBehaviour, IDamageable<float>
 
     public void death()
     {                    
-        Destroy(_tree); 
+        Destroy(_tree);
         if(this.gameObject.name == "Treead")
-            StartCoroutine(UIManager.MonologueStart(TextStates.Epilogue));
+        {
+            //UIManager.GetComponent<UIOptions>().monologeEnd = false;
+            //UIManager.GetComponent<UIOptions>().DialogLayout();
+        }
     }
 
     public void Damage(float damage)
