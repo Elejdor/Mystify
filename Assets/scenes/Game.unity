@@ -1571,7 +1571,7 @@ Canvas:
   m_GameObject: {fileID: 675388136}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 368357075}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3126,7 +3126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404427239}
   - component: {fileID: 1404427240}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: halo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3360,7 +3360,7 @@ GameObject:
   - component: {fileID: 1432419059}
   - component: {fileID: 1432419061}
   - component: {fileID: 1432419060}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HeartTearsInward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3684,7 +3684,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -13422,7 +13422,7 @@ GameObject:
   - component: {fileID: 1663555733}
   - component: {fileID: 1663555735}
   - component: {fileID: 1663555734}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HeartTears
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13437,7 +13437,7 @@ Transform:
   m_GameObject: {fileID: 1663555732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 49.7, y: -47.5, z: -4066.8872}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1437416205}
   m_RootOrder: 1
@@ -13746,7 +13746,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
