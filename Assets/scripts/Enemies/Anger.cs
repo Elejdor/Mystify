@@ -13,13 +13,13 @@ public class Anger : MonoBehaviour
     [SerializeField]
     private GameObject _lance;
     [SerializeField]
-    private float lanceOffset;
+    private float lanceOffset = 100f;
     private Vector2 _dir;
     private CastFireball _fire;
 
     [SerializeField]
     private float _hp = 200;
-    private static float maxHp;
+    private static float _hpMax;
     [SerializeField]
     private float castCooldown = 2f;
     [SerializeField]
@@ -30,23 +30,46 @@ public class Anger : MonoBehaviour
     private bool _canLance = true;
 
     public bool _canRegen = true;
+    private float _distance;
+    [SerializeField]
+    private float _velocity = 8.5f;
+    [SerializeField]
+    private float _attackRange = 30f;
     
     void Start()
     {
-        maxHp = _hp;
+        _hpMax = _hp;
+        
         _fire = GetComponent<CastFireball>();
     }
 
     
     void Update()
-    {    
+    {
+        _distance = Mathf.Abs(_player.transform.position.x - _anger.transform.position.x);
+        if ((_distance < 40f) || (_hp != _hpMax))
+        {
+            move();
+        }
         aim();
-        if (Mathf.Abs(_player.transform.position.x - _anger.transform.position.x) < 30)
+        if (Mathf.Abs(_player.transform.position.x - _anger.transform.position.x) < 45)
             throwFireball();
         if (_canLance == true)
             StartCoroutine(Lance());
 
         Regenerating();
+    }
+
+    public void move()
+    {
+        if (_player.transform.position.x > (_anger.transform.position.x + _attackRange - 1))
+        {
+            _anger.transform.Translate(Vector2.right * _velocity * Time.deltaTime);
+        }
+        else if (_player.transform.position.x < (_anger.transform.position.x - _attackRange + 1))
+        {
+            _anger.transform.Translate(Vector2.left * _velocity * Time.deltaTime);
+        }
     }
 
     void Regenerating()
@@ -83,7 +106,7 @@ public class Anger : MonoBehaviour
     public void Damage(float damage)
     {
         Debug.Log("angerHP: " + _hp);
-        if (_hp + damage <= maxHp)
+        if (_hp + damage <= _hpMax)
             _hp += damage;
         if (_hp <= 0)
             death();
@@ -97,22 +120,15 @@ public class Anger : MonoBehaviour
 
     IEnumerator Lance()
     {
+        _canLance = false;
         _lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
         yield return new WaitForSeconds(lanceTime);
-
         _lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
-        _canLance = false;
-        StartCoroutine("LanceCooldown");
-        
-    }
-
-    IEnumerator LanceCooldown()
-    {
         yield return new WaitForSeconds(lanceCooldown);
         _canLance = true;
         
     }
-
+    
     public IEnumerator RegenerationTime()
     {
         float regenTime = 5f;
