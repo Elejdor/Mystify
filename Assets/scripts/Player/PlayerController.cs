@@ -14,9 +14,7 @@ public class PlayerController : MonoBehaviour, IInputListener
     CharacterMovement _movement;
 
     [SerializeField]
-        SimpleCameraFollow _camera;
-    [SerializeField]
-        Animator _anim;
+        SimpleCameraFollow _camera;  
 
     int _prevSpellInput = 0;
 
@@ -122,8 +120,7 @@ public class PlayerController : MonoBehaviour, IInputListener
     void CastProjectile( int spell, Vector2 direction )
     {
         if ( _projectileCld <= 0.0f )
-        {
-            //_anim.SetBool("isCasting", true);
+        {                                       
             switch ( spell )
             {
                 case 1:
@@ -135,10 +132,8 @@ public class PlayerController : MonoBehaviour, IInputListener
             }
 
             _projectileCld = c_projectileCld;
-            _flameThrowerCld = c_projectileCld;
-            //_anim.SetBool("isCasting", false);
-        }
-        //_anim.SetBool("isCasting", false);
+            _flameThrowerCld = c_projectileCld;   
+        }                                    
     }
 
     void HandleMovementInput( InputManager input )

@@ -2223,7 +2223,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arm: {fileID: 4207347952924276}
   _camera: {fileID: 0}
-  _anim: {fileID: 0}
 --- !u!114 &114286477802801274
 MonoBehaviour:
   m_ObjectHideFlags: 1

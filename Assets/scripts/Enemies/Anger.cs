@@ -5,42 +5,46 @@ using UnityEngine;
 public class Anger : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _anger;
+        private GameObject _anger;
     [SerializeField]
-    private GameObject _player;
+        private GameObject _player;
     [SerializeField]
-    private GameObject _castPoint;
+        private GameObject _castPoint;
     [SerializeField]
-    private GameObject _lance;
+        private GameObject _lance;
     [SerializeField]
-    private float lanceOffset = 100f;
+        private float lanceOffset = 100f;
+    [SerializeField]
+        Animator _anim;
     private Vector2 _dir;
     private CastFireball _fire;
 
     [SerializeField]
-    private float _hp = 200;
+        private float _hp = 200;
     private static float _hpMax;
     [SerializeField]
-    private float castCooldown = 2f;
+        private float castCooldown = 2f;
     [SerializeField]
-    private float lanceTime = 0.5f;
+        private float lanceTime = 0.5f;
     [SerializeField]
-    private float lanceCooldown = 10f;
+        private float lanceCooldown = 10f;
     private bool _canCast = true;
-    private bool _canLance = true;
+    private bool _canLance = false;
 
     public bool _canRegen = true;
     private float _distance;
     [SerializeField]
-    private float _velocity = 8.5f;
+        private float _velocity = 8.5f;
     [SerializeField]
-    private float _attackRange = 30f;
-    
+        private float _attackRange = 30f;
+    private float _movementDirection;
+
     void Start()
     {
         _hpMax = _hp;
-        
-        _fire = GetComponent<CastFireball>();
+        _canLance = false;
+
+    _fire = GetComponent<CastFireball>();
     }
 
     
@@ -54,8 +58,13 @@ public class Anger : MonoBehaviour
         aim();
         if (Mathf.Abs(_player.transform.position.x - _anger.transform.position.x) < 45)
             throwFireball();
-        if (_canLance == true)
-            StartCoroutine(Lance());
+
+        if(_distance < 20f)
+            _canLance = true;
+        if(_canLance == true)
+        {
+            StartCoroutine(Lance());  
+        }
 
         Regenerating();
     }
@@ -65,11 +74,17 @@ public class Anger : MonoBehaviour
         if (_player.transform.position.x > (_anger.transform.position.x + _attackRange - 1))
         {
             _anger.transform.Translate(Vector2.right * _velocity * Time.deltaTime);
+            _movementDirection = 1f;
         }
         else if (_player.transform.position.x < (_anger.transform.position.x - _attackRange + 1))
         {
             _anger.transform.Translate(Vector2.left * _velocity * Time.deltaTime);
+            _movementDirection = 1f;
         }
+        else
+            _movementDirection = 0f;
+
+        _anim.SetFloat("speed", _movementDirection);
     }
 
     void Regenerating()
@@ -90,6 +105,8 @@ public class Anger : MonoBehaviour
 
     public void throwFireball()
     {
+        _anim.SetBool("fireball", _canCast);
+        Wait(3f);
         if (_canCast)
         {
             _fire.Cast(_dir);
@@ -112,6 +129,15 @@ public class Anger : MonoBehaviour
             death();
     }
 
+    IEnumerator Wait(float time)
+    {
+        while(time > 0f)
+        {
+            yield return null;
+            time -= Time.deltaTime;
+        }
+    }
+
     IEnumerator FireballCooldown()
     {
         yield return new WaitForSeconds(castCooldown);
@@ -120,13 +146,14 @@ public class Anger : MonoBehaviour
 
     IEnumerator Lance()
     {
+        _anim.SetBool("lance", true);
+        yield return new WaitForSeconds(0.8f);
         _canLance = false;
         _lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
         yield return new WaitForSeconds(lanceTime);
+        _anim.SetBool("lance", false);
         _lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
-        yield return new WaitForSeconds(lanceCooldown);
-        _canLance = true;
-        
+        yield return new WaitForSeconds(lanceCooldown); 
     }
     
     public IEnumerator RegenerationTime()
