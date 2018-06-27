@@ -78,6 +78,7 @@ public class CharacterMovement : MonoBehaviour
 
         _anim.SetFloat( "Speed", Mathf.Abs( _dir.x ) );
         _anim.SetFloat( "VerticalSpeed", _rb.velocity.y );
+        SoundManager.Play(SfxType.MvSteps);
 
         if (input._jump == ButtonState.Pressed)
         {
