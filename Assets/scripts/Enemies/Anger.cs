@@ -38,13 +38,10 @@ public class Anger : MonoBehaviour
     [SerializeField]
         private float _attackRange = 30f;
     private float _movementDirection;
-<<<<<<< HEAD
+
     bool b1 = true;
     bool b2 = true;
-
-=======
-    
->>>>>>> ae7916f9ecbe16a9f54fe94e3b783a25959a3834
+                                                
     void Start()
     {
         _hpMax = _hp;
@@ -154,8 +151,7 @@ public class Anger : MonoBehaviour
     }
 
     IEnumerator Lance()
-    {
-<<<<<<< HEAD
+    {            
         if(b1)
         {
             _anim.SetBool("lance", true);
@@ -172,8 +168,7 @@ public class Anger : MonoBehaviour
         {
             yield return new WaitForSeconds(lanceCooldown);
             b1 = true;
-        }
-=======
+        }    
         _anim.SetBool("lance", true);
         yield return new WaitForSeconds(0.8f);
         _canLance = false;
@@ -182,8 +177,7 @@ public class Anger : MonoBehaviour
         _anim.SetBool("lance", false);
         //_lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
         yield return new WaitForSeconds(lanceCooldown);
-        _canLance = true;
->>>>>>> ae7916f9ecbe16a9f54fe94e3b783a25959a3834
+        _canLance = true;                        
     }
 
 

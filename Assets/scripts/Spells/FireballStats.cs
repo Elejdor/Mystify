@@ -61,9 +61,8 @@ public class FireballStats : MonoBehaviour
         {
             _player.Damage(50);                          
             _player._canRegen = false;
-            _anger.Damage(50);
-            _anger._canRegen = false; 
-            Debug.Log("I hit him!");
+            //_anger.Damage(50);
+            //_anger._canRegen = false;  
             Shake.canShake = true;
         }
         Destroy(this.gameObject);
