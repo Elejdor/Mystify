@@ -38,6 +38,8 @@ public class Anger : MonoBehaviour
     [SerializeField]
         private float _attackRange = 30f;
     private float _movementDirection;
+    bool b1 = true;
+    bool b2 = true;
 
     void Start()
     {
@@ -63,7 +65,8 @@ public class Anger : MonoBehaviour
             _canLance = true;
         if(_canLance == true)
         {
-            StartCoroutine(Lance());  
+            StartCoroutine(Lance());
+            Wait(2f);
         }
 
         Regenerating();
@@ -136,6 +139,7 @@ public class Anger : MonoBehaviour
             yield return null;
             time -= Time.deltaTime;
         }
+        _anim.SetBool("lance", false);
     }
 
     IEnumerator FireballCooldown()
@@ -146,14 +150,23 @@ public class Anger : MonoBehaviour
 
     IEnumerator Lance()
     {
-        _anim.SetBool("lance", true);
-        yield return new WaitForSeconds(0.8f);
-        _canLance = false;
-        _lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
-        yield return new WaitForSeconds(lanceTime);
-        _anim.SetBool("lance", false);
-        _lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
-        yield return new WaitForSeconds(lanceCooldown); 
+        if(b1)
+        {
+            _anim.SetBool("lance", true);
+            yield return new WaitForSeconds(0.8f);
+            _canLance = false;
+            _lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
+            yield return new WaitForSeconds(lanceTime);
+            _lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
+            yield return new WaitForSeconds(lanceCooldown);
+            _anim.SetBool("lance", false);
+            b1 = false;
+        }
+        else
+        {
+            yield return new WaitForSeconds(lanceCooldown);
+            b1 = true;
+        }
     }
     
     public IEnumerator RegenerationTime()
