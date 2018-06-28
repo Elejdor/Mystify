@@ -38,13 +38,17 @@ public class Anger : MonoBehaviour
     [SerializeField]
         private float _attackRange = 30f;
     private float _movementDirection;
+<<<<<<< HEAD
     bool b1 = true;
     bool b2 = true;
 
+=======
+    
+>>>>>>> ae7916f9ecbe16a9f54fe94e3b783a25959a3834
     void Start()
     {
         _hpMax = _hp;
-        _canLance = false;
+        _canLance = true;
 
     _fire = GetComponent<CastFireball>();
     }
@@ -61,13 +65,13 @@ public class Anger : MonoBehaviour
         if (Mathf.Abs(_player.transform.position.x - _anger.transform.position.x) < 45)
             throwFireball();
 
-        if(_distance < 20f)
-            _canLance = true;
-        if(_canLance == true)
+        
+        if (_canLance == true)
         {
             StartCoroutine(Lance());
             Wait(2f);
         }
+        
 
         Regenerating();
     }
@@ -102,7 +106,7 @@ public class Anger : MonoBehaviour
 
     public void aim()
     {
-        _dir = _player.transform.position - _anger.transform.position;
+        _dir = _player.transform.position - _castPoint.transform.position;
         _dir.Normalize();
     }
 
@@ -151,6 +155,7 @@ public class Anger : MonoBehaviour
 
     IEnumerator Lance()
     {
+<<<<<<< HEAD
         if(b1)
         {
             _anim.SetBool("lance", true);
@@ -168,8 +173,20 @@ public class Anger : MonoBehaviour
             yield return new WaitForSeconds(lanceCooldown);
             b1 = true;
         }
+=======
+        _anim.SetBool("lance", true);
+        yield return new WaitForSeconds(0.8f);
+        _canLance = false;
+        //_lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
+        yield return new WaitForSeconds(lanceTime);
+        _anim.SetBool("lance", false);
+        //_lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
+        yield return new WaitForSeconds(lanceCooldown);
+        _canLance = true;
+>>>>>>> ae7916f9ecbe16a9f54fe94e3b783a25959a3834
     }
-    
+
+
     public IEnumerator RegenerationTime()
     {
         float regenTime = 5f;
