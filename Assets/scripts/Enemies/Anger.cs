@@ -38,11 +38,11 @@ public class Anger : MonoBehaviour
     [SerializeField]
         private float _attackRange = 30f;
     private float _movementDirection;
-
+    
     void Start()
     {
         _hpMax = _hp;
-        _canLance = false;
+        _canLance = true;
 
     _fire = GetComponent<CastFireball>();
     }
@@ -59,12 +59,12 @@ public class Anger : MonoBehaviour
         if (Mathf.Abs(_player.transform.position.x - _anger.transform.position.x) < 45)
             throwFireball();
 
-        if(_distance < 20f)
-            _canLance = true;
-        if(_canLance == true)
+        
+        if (_canLance == true)
         {
             StartCoroutine(Lance());  
         }
+        
 
         Regenerating();
     }
@@ -99,7 +99,7 @@ public class Anger : MonoBehaviour
 
     public void aim()
     {
-        _dir = _player.transform.position - _anger.transform.position;
+        _dir = _player.transform.position - _castPoint.transform.position;
         _dir.Normalize();
     }
 
@@ -150,13 +150,15 @@ public class Anger : MonoBehaviour
         _anim.SetBool("lance", true);
         yield return new WaitForSeconds(0.8f);
         _canLance = false;
-        _lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
+        //_lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
         yield return new WaitForSeconds(lanceTime);
         _anim.SetBool("lance", false);
-        _lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
-        yield return new WaitForSeconds(lanceCooldown); 
+        //_lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
+        yield return new WaitForSeconds(lanceCooldown);
+        _canLance = true;
     }
-    
+
+
     public IEnumerator RegenerationTime()
     {
         float regenTime = 5f;

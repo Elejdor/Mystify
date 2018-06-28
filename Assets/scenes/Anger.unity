@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 130063571}
   - component: {fileID: 130063573}
   - component: {fileID: 130063572}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_L_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 179048727}
   - component: {fileID: 179048729}
   - component: {fileID: 179048728}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_spike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221524254}
   - component: {fileID: 221524255}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: R leg IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 223215641}
   - component: {fileID: 223215643}
   - component: {fileID: 223215642}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 241904396}
   - component: {fileID: 241904398}
   - component: {fileID: 241904397}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 273097604}
   - component: {fileID: 273097606}
   - component: {fileID: 273097605}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 281362967}
   - component: {fileID: 281362968}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spike1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402589373}
   - component: {fileID: 402589374}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: f6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 451784281}
   - component: {fileID: 451784280}
   - component: {fileID: 451784282}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Anger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,7 +1125,6 @@ Transform:
   m_Children:
   - {fileID: 223215641}
   - {fileID: 1532548823}
-  - {fileID: 675070759}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1146,7 +1145,7 @@ MonoBehaviour:
   _lance: {fileID: 675070756}
   lanceOffset: 35
   _anim: {fileID: 223215642}
-  _hp: 2000
+  _hp: 1800
   _hpMax: 0
   castCooldown: 2
   lanceTime: 0.5
@@ -1201,7 +1200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500074890}
   - component: {fileID: 500074891}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: L arm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 513218891}
   - component: {fileID: 513218892}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss basic bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1295,7 +1294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 531306835}
   - component: {fileID: 531306836}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: L arm3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1310,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.59804004, w: 0.8014663}
   m_LocalPosition: {x: 1.6749947, y: 0, z: 0}
   m_LocalScale: {x: 1.043627, y: 0.23696366, z: 0.89763933}
-  m_Children: []
+  m_Children:
+  - {fileID: 675070759}
   m_Father: {fileID: 1533484456}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45.188004}
@@ -1340,7 +1340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 561356409}
   - component: {fileID: 561356410}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: R arm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,7 +1565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 612567083}
   - component: {fileID: 612567084}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: L leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1728,7 +1728,7 @@ GameObject:
   - component: {fileID: 675070758}
   - component: {fileID: 675070757}
   - component: {fileID: 675070760}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: lance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1792,7 +1792,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5.017372, y: 0.002963066}
+  m_Offset: {x: 4.33163, y: -0.16972375}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0.5}
@@ -1803,7 +1803,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.00708, y: 10.022503}
+  m_Size: {x: 8.635596, y: 7.976231}
   m_EdgeRadius: 0
 --- !u!4 &675070759
 Transform:
@@ -1811,12 +1811,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 675070756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.59, y: -1.71, z: 0}
-  m_LocalScale: {x: 0.7122551, y: 0.0888064, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9999715, w: 0.007549105}
+  m_LocalPosition: {x: 5.49, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.6830102, y: 0.37470204, z: 1.1140332}
   m_Children: []
-  m_Father: {fileID: 451784279}
-  m_RootOrder: 2
+  m_Father: {fileID: 531306835}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &675070760
 MonoBehaviour:
@@ -2161,7 +2161,7 @@ GameObject:
   - component: {fileID: 755119345}
   - component: {fileID: 755119347}
   - component: {fileID: 755119346}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_spike1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2258,7 +2258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755507089}
   - component: {fileID: 755507090}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: R leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2303,7 +2303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 761355551}
   - component: {fileID: 761355552}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2351,7 +2351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 792160017}
   - component: {fileID: 792160018}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: f4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2396,7 +2396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 873078204}
   - component: {fileID: 873078205}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: chest2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2442,7 +2442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 896430115}
   - component: {fileID: 896430116}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: R arm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2691,7 +2691,7 @@ GameObject:
   - component: {fileID: 995724030}
   - component: {fileID: 995724032}
   - component: {fileID: 995724031}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_L_leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7516,7 +7516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074938697}
   - component: {fileID: 1074938698}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: f1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7562,7 +7562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1086315496}
   - component: {fileID: 1086315497}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: f3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12353,7 +12353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1234859958}
   - component: {fileID: 1234859959}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: spike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12398,7 +12398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239579341}
   - component: {fileID: 1239579342}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: belly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12447,7 +12447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1240689224}
   - component: {fileID: 1240689225}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: R leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17200,7 +17200,7 @@ GameObject:
   - component: {fileID: 1360463209}
   - component: {fileID: 1360463211}
   - component: {fileID: 1360463210}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_R_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17537,7 +17537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466149078}
   - component: {fileID: 1466149079}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: chest3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17682,7 +17682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1516276602}
   - component: {fileID: 1516276603}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: L leg IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17748,7 +17748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521459320}
   - component: {fileID: 1521459321}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: f2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17866,7 +17866,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1532548823}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: castPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17895,7 +17895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1533484456}
   - component: {fileID: 1533484457}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: L arm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17941,7 +17941,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1566660723}
   - component: {fileID: 1566660724}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17986,7 +17986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1724987104}
   - component: {fileID: 1724987105}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: f5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18032,7 +18032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1737385019}
   - component: {fileID: 1737385020}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18078,7 +18078,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1739876256}
   - component: {fileID: 1739876257}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: R arm3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18598,7 +18598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1987110386}
   - component: {fileID: 1987110387}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: L leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18645,7 +18645,7 @@ GameObject:
   - component: {fileID: 2003574663}
   - component: {fileID: 2003574665}
   - component: {fileID: 2003574664}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_R_leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18930,7 +18930,7 @@ GameObject:
   - component: {fileID: 2039634087}
   - component: {fileID: 2039634089}
   - component: {fileID: 2039634088}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: boss_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

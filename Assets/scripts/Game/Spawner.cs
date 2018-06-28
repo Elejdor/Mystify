@@ -45,7 +45,7 @@ public class Spawner : MonoBehaviour
             for (int i = 0; i < Random.Range(1, 5); i++)
             {
                 Instantiate(_breeze, spawnBreeze.position, Quaternion.identity);
-                randDistance = Random.Range(10, 80);
+                randDistance = Random.Range(10, 25);
                 spawnBreeze.position = new Vector2(spawnBreeze.position.x + randDistance, spawnBreeze.position.y);
             }
         }
@@ -54,7 +54,7 @@ public class Spawner : MonoBehaviour
             for (int i = 0; i < Random.Range(1, 2); i++)
             {
                 Instantiate(_golire, spawnGolire.position, Quaternion.identity);
-                randDistance = Random.Range(40, 80);
+                randDistance = Random.Range(20, 35);
                 spawnGolire.position = new Vector2(spawnGolire.position.x + randDistance, spawnGolire.position.y);
             }
         }
@@ -63,7 +63,7 @@ public class Spawner : MonoBehaviour
             for (int i = 0; i < Random.Range(1, 2); i++)
             {
                 Instantiate(_treead, spawnTreead.position, Quaternion.identity);
-                randDistance = Random.Range(40, 80);
+                randDistance = Random.Range(15, 30);
                 spawnTreead.position = new Vector2(spawnTreead.position.x + randDistance, spawnTreead.position.y);
             }
         }
