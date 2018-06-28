@@ -55,7 +55,8 @@ public class CharacterMovement : MonoBehaviour
     }
 
     void Walk()
-    {            
+    {
+        //SoundManager.Play(SfxType.MvSteps);
         if( (this.transform.position.x > _crossHair.transform.position.x) && _isLeft)
         {
             Flip();
@@ -90,6 +91,7 @@ public class CharacterMovement : MonoBehaviour
         if (_canJump)
         {
             _rb.AddForce( Vector2.up * _jumpForce );
+            SoundManager.Play(SfxType.MvJump);
             _jumpReady = false;
             _canJump = false;
             StartCoroutine( Jumping() );

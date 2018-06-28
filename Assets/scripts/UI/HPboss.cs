@@ -10,18 +10,18 @@ public class HPboss : MonoBehaviour
     [SerializeField]
         Sprite[] images;
     [SerializeField]
-        GameObject _treead;
-    Treead treead;
+        GameObject _anger;
+    Anger anger;
 
     public float magicalNumber;
 
     // Use this for initialization
     void Start()
     {
-        _treead = GameObject.Find("Treead");
+        _anger = GameObject.Find("Anger");
         currentImage = GetComponent<Image>();
-        treead = _treead.GetComponent<Treead>();
-        magicalNumber = treead._hpMax / 18;
+        anger = _anger.GetComponent<Anger>();
+        magicalNumber = anger._hpMax / 18;
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class HPboss : MonoBehaviour
 
     void ChangeImage()
     {
-        int index = (int)(treead._hp / magicalNumber) - 1;
+        int index = (int)(anger._hp / magicalNumber) - 1;
         if(index > 17)
             index = 17;
         currentImage.sprite = images[index];

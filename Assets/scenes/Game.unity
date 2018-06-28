@@ -1900,6 +1900,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[1].m_clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[2].m_clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4547993719729596, guid: 34a9d2ae1d280d744a2c256c13a350a0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1992,6 +2007,36 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2c555965f0fe5614b865959f6d1fa44d, type: 3}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[1].m_clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c555965f0fe5614b865959f6d1fa44d, type: 3}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[1].m_clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 51f3646fd3934fb4d9227de3a3b6a1b6, type: 3}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[1].m_clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: cc6a15026fae1984bb9357348fab1eca, type: 3}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[1].m_effectType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[2].m_effectType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114475454543029880, guid: 34a9d2ae1d280d744a2c256c13a350a0,
+        type: 2}
+      propertyPath: m_soundEffects.Array.data[2].m_clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c47a327795da8c44e94fc510d0c716b9, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34a9d2ae1d280d744a2c256c13a350a0, type: 2}
   m_IsPrefabParent: 0

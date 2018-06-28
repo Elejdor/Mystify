@@ -19,9 +19,9 @@ public class Anger : MonoBehaviour
     private Vector2 _dir;
     private CastFireball _fire;
 
-    [SerializeField]
-        private float _hp = 200;
-    private static float _hpMax;
+    
+        public float _hp = 200;
+    public float _hpMax;
     [SerializeField]
         private float castCooldown = 2f;
     [SerializeField]
@@ -126,8 +126,9 @@ public class Anger : MonoBehaviour
     public void Damage(float damage)
     {
         Debug.Log("angerHP: " + _hp);
-        if (_hp + damage <= _hpMax)
-            _hp += damage;
+        _hp += damage;
+        if (_hp > _hpMax)
+            _hp = _hpMax;
         if (_hp <= 0)
             death();
     }

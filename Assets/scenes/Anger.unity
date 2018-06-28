@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 451784280}
   - component: {fileID: 451784282}
   m_Layer: 0
-  m_Name: boss_prototype
+  m_Name: Anger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,6 +1147,7 @@ MonoBehaviour:
   lanceOffset: 35
   _anim: {fileID: 223215642}
   _hp: 2000
+  _hpMax: 0
   castCooldown: 2
   lanceTime: 0.5
   lanceCooldown: 5
@@ -2627,25 +2628,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentImage: {fileID: 0}
   images:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _treead: {fileID: 0}
+  - {fileID: 21300000, guid: 9202b957ab0fab44994cf9e401410d8b, type: 3}
+  - {fileID: 21300000, guid: b45e77bea780fa64d8d1f1e13a7bb48c, type: 3}
+  - {fileID: 21300000, guid: faf8e87d44b5d794fbf1bfb229fa3c7e, type: 3}
+  - {fileID: 21300000, guid: 2263cb36bc90799498c011417b47dc7c, type: 3}
+  - {fileID: 21300000, guid: 4000b967aff895f4680b1b45d1a1e65a, type: 3}
+  - {fileID: 21300000, guid: b438f1363380b7b498c38a702949b058, type: 3}
+  - {fileID: 21300000, guid: e1702c4f659611b468cca09bec0a3c9b, type: 3}
+  - {fileID: 21300000, guid: 389d1a1957c5dc74a8bb8dc2cd6f097d, type: 3}
+  - {fileID: 21300000, guid: 67581fd7da110bb46a15e3591be5c677, type: 3}
+  - {fileID: 21300000, guid: d4f689ee2ea134844a6c64bb9336a35a, type: 3}
+  - {fileID: 21300000, guid: 665de8e2d3d69f747ad4c7a02b359d4f, type: 3}
+  - {fileID: 21300000, guid: 694eb45f5d4cd734a80f6fa3f3b2e7f7, type: 3}
+  - {fileID: 21300000, guid: 9cab48fec9edfb842af4fa309c748349, type: 3}
+  - {fileID: 21300000, guid: c590872d32091c946ac6bb4418e53d08, type: 3}
+  - {fileID: 21300000, guid: 2b6cec7f4ee8b1b4db06854b806cac5c, type: 3}
+  - {fileID: 21300000, guid: 68e6ccfcaa9d1ee46ba84779372d21f2, type: 3}
+  - {fileID: 21300000, guid: 77277cc40782ea448afb81c5b01d7f8f, type: 3}
+  - {fileID: 21300000, guid: 0d0c93804e5bfd44b8e6f54fac692e89, type: 3}
+  _anger: {fileID: 451784278}
   magicalNumber: 0
 --- !u!114 &915858220
 MonoBehaviour:
@@ -2666,7 +2667,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9202b957ab0fab44994cf9e401410d8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0d0c93804e5bfd44b8e6f54fac692e89, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
