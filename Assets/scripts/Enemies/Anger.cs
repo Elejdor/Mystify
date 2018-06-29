@@ -54,7 +54,7 @@ public class Anger : MonoBehaviour
     void Update()
     {
         _distance = Mathf.Abs(_player.transform.position.x - _anger.transform.position.x);
-        if ((_distance < 40f) || (_hp != _hpMax))
+        if ((_distance < 35f) || (_hp != _hpMax))
         {
             move();
         }
@@ -109,7 +109,7 @@ public class Anger : MonoBehaviour
 
     public void throwFireball()
     {
-        _anim.SetBool("fireball", _canCast);
+       // _anim.SetBool("fireball", _canCast);
         Wait(3f);
         if (_canCast)
         {
