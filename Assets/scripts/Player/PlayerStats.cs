@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour, IDamageable<float>
 {
-    public float _hp = 500;
-    public float _maxHP = 500;
+    public float _hp = 540;
+    public float _maxHP = 540;
     public bool _canRegen = true;
     [SerializeField]
         ParticleSystem [] _particles;
@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour, IDamageable<float>
                  
     void Start()
     {
-        _maxHP = 500;
+        _maxHP = 540;
         _hp = _maxHP;
         UImanager = GameObject.Find("TextManager");
     }

@@ -20,7 +20,7 @@ public class UIOptions : MonoBehaviour
     {
         if(!created)
         {                                
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
             created = true;
             Debug.Log("Awake: " + this.gameObject);
         }
@@ -47,9 +47,9 @@ public class UIOptions : MonoBehaviour
 
     public static void ChangeScene(string sceneName)
     {    
-        m_instance.StartCoroutine(m_instance.fadeOut(5));
+        //m_instance.StartCoroutine(m_instance.fadeOut(5));
         SceneManager.LoadScene(sceneName);
-        m_instance.StartCoroutine(m_instance.fadeIn(5));       
+        //m_instance.StartCoroutine(m_instance.fadeIn(5));       
     }
 
     public IEnumerator MonologueStart(TextStates textStates, float lenght = 5f)
