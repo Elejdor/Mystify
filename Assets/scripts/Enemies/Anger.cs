@@ -39,8 +39,6 @@ public class Anger : MonoBehaviour
         private float _attackRange = 30f;
     private float _movementDirection;
 
-    bool b1 = true;
-    bool b2 = true;
                                                 
     void Start()
     {
@@ -151,24 +149,7 @@ public class Anger : MonoBehaviour
     }
 
     IEnumerator Lance()
-    {            
-        if(b1)
-        {
-            _anim.SetBool("lance", true);
-            yield return new WaitForSeconds(0.8f);
-            _canLance = false;
-            _lance.transform.position = new Vector3(_lance.transform.position.x - lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
-            yield return new WaitForSeconds(lanceTime);
-            _lance.transform.position = new Vector3(_lance.transform.position.x + lanceOffset, _lance.transform.position.y, _lance.transform.position.z);
-            yield return new WaitForSeconds(lanceCooldown);
-            _anim.SetBool("lance", false);
-            b1 = false;
-        }
-        else
-        {
-            yield return new WaitForSeconds(lanceCooldown);
-            b1 = true;
-        }    
+    {        
         _anim.SetBool("lance", true);
         yield return new WaitForSeconds(0.8f);
         _canLance = false;
